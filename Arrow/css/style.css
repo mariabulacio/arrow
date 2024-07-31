@@ -163,13 +163,13 @@ h2{
             background-color: white;
             margin: 10px;
         }
-        #navtorneos, #navflechas{
+        #navtorneos{
             width: 1000px;
             margin: auto;
             display: flex;
             justify-content: center;
         }
-        #navtorneos a, #navflechas a{
+        #navtorneos a{
             text-decoration: none;
             padding: 8px 12px;
             margin: 8px 2px 8px 2px;
@@ -181,7 +181,7 @@ h2{
             font-weight: 300;
             font-size: 12px;
         }
-        #navtorneos a:hover,  #navflechas a:hover{
+        #navtorneos a:hover{
             background-color: #ca6b22;
         }
         #usuariostorneo{
