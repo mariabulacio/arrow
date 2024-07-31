@@ -52,11 +52,24 @@
                     <h3>Eliminatorias</h3> 
             </article>
             <div id="torneoscreados">
+                <form action="" id="editorneo">
+                    <input type="text" placeholder="Título:" id="titletorneo">
+                    <input type="date" placeholder="Fecha:" id="datetorneo">
+                    <input type="text" placeholder="Arquero">
+                    <select id="edition">
+                        <option value="" disabled selected>Modalidad:</option>
+                        <option value="12m Raso 60cm">12m Raso 60cm</option>
+                        <option value="12m Raso 40cm">12m Raso 40cm</option>
+                        <option value="18m Raso 40cm">18m Raso 40cm</option>
+                        <option value="18m Libre 40cm">18m Libre 40cm</option>
+                    </select>
+                    <button id="torneok">Guardar</button>
+                    <button id="torneonok">Cancelar</button>
             </div>
             <div id="usuariostorneo">
             <form action="" id="formtorneo">
                 <input type="text" placeholder="Título:" id="titulotorneo">
-                <input type="text" placeholder="Fecha:" id="fechatorneo">
+                <input type="date" placeholder="Fecha:" id="fechatorneo">
                 <select id="modo">
                     <option value="" disabled selected>Modalidad:</option>
                     <option value="12m Raso 60cm">12m Raso 60cm</option>
