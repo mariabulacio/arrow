@@ -21,7 +21,6 @@ let fechatorneo = document.querySelector('#fechatorneo')
 let nuevotorneo = document.querySelector('#nuevotorneo')
 let modo = document.querySelector('#modo');
 let formtorneo = document.querySelector('#formtorneo');
-let torneoscreados = document.querySelector('#torneoscreados');
 
 
 function iniciar(){
@@ -210,12 +209,86 @@ nuevotorneo.addEventListener('click', function(event) {
         <h3>${titulo}</h3>
         <p>${fecha}</p>
         <p>${modalidad}</p>
+        <button class="newtorneo">Editar</button>
 
     `;
-    
-    // Insertar el nuevo torneo en el lugar deseado
     document.querySelector('#torneoscreados').insertAdjacentElement('beforeend', nuevoTorneo);
+    nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
+        alert(`Detalles del torneo:\nTítulo: ${titulo}\nFecha: ${fecha}\nModalidad: ${modalidad}`);
+    });
+
     alert('Datos guardados');
     formtorneo.reset();
     iniciar();
 });
+
+// let formEditar = document.getElementById('form-editar');
+//     let editTitulo = document.getElementById('edit-titulo');
+//     let editFecha = document.getElementById('edit-fecha');
+//     let editModo = document.getElementById('edit-modo');
+//     let guardarEdiciones = document.getElementById('guardar-ediciones');
+//     let cancelarEdiciones = document.getElementById('cancelar-ediciones');
+//     let torneoscreados = document.getElementById('torneoscreados');
+//     let divEditando = null;
+
+//     // Crear un nuevo torneo
+//     document.getElementById('nuevotorneo').addEventListener('click', function(event) {
+//         event.preventDefault();
+//         if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+//             alert('Por favor, ingrese todos los datos');
+//             return;
+//         }
+
+//         let titulo = titulotorneo.value;
+//         let fecha = fechatorneo.value;
+//         let modalidad = modo.value;
+
+//         let nuevoTorneo = document.createElement('div');
+//         nuevoTorneo.className = 'torneo';
+//         nuevoTorneo.innerHTML = `
+//             <h3>${titulo}</h3>
+//             <p>${fecha}</p>
+//             <p>${modalidad}</p>
+//             <button class="editar-btn">Editar</button>
+//         `;
+//         torneoscreados.appendChild(nuevoTorneo);
+
+//         // Limpiar el formulario y ocultar el formulario de edición
+//         formtorneo.reset();
+//         formEditar.style.display = 'none';
+//     });
+
+//     // Mostrar el formulario de edición cuando se hace clic en el botón de editar
+//     torneoscreados.addEventListener('click', function(event) {
+//         if (event.target.classList.contains('editar-btn')) {
+//             divEditando = event.target.parentElement;
+//             let titulo = divEditando.querySelector('h3').textContent;
+//             let fecha = divEditando.querySelector('p').textContent.split(' - ')[0];
+//             let modalidad = divEditando.querySelector('p').textContent.split(' - ')[1];
+
+//             editTitulo.value = titulo;
+//             editFecha.value = fecha;
+//             editModo.value = modalidad;
+
+//             formEditar.style.display = 'block';
+//         }
+//     });
+
+//     // Guardar las ediciones
+//     guardarEdiciones.addEventListener('click', function() {
+//         if (!editTitulo.value || !editFecha.value || !editModo.value) {
+//             alert('Por favor, ingrese todos los datos');
+//             return;
+//         }
+
+//         if (divEditando) {
+//             divEditando.querySelector('h3').textContent = editTitulo.value;
+//             divEditando.querySelector('p').textContent = `${editFecha.value} - ${editModo.value}`;
+//             formEditar.style.display = 'none';
+//         }
+//     });
+
+//     // Cancelar ediciones
+//     cancelarEdiciones.addEventListener('click', function() {
+//         formEditar.style.display = 'none';
+//     });
