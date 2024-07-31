@@ -5,8 +5,6 @@ let anotarse = document.querySelector('#anotarse');
 let resultados = document.querySelector('#resultados');
 let torneo1 = document.querySelector('#torneo1');
 let torneo2 = document.querySelector('#torneo2');
-let torneo3 = document.querySelector('#torneo3');
-let torneo4 = document.querySelector('#torneo4');
 let navtorneos = document.querySelector('#navtorneos');
 let btnCrear = document.querySelector('#btnCrear');
 let btnEditar = document.querySelector('#btnEditar');
@@ -17,22 +15,18 @@ let editarSection = document.querySelector('#editarsection');
 let anotarseSection = document.querySelector('#anotarsesection');
 let resultadosSection = document.querySelector('#resultadossection');
 let navflechas = document.querySelector('#navflechas')
-let docerasosesenta = document.querySelector('#docerasosesenta')
-let docerasocuarenta = document.querySelector('#docerasocuarenta')
-let dieciochorasocuarenta = document.querySelector('#dieciochorasocuarenta')
-let dieciocholibrecuarenta = document.querySelector('#dieciocholibrecuarenta')
 let usuariostorneo = document.querySelector('#usuariostorneo')
-let formatotorneo = document.querySelector('#formatotorneo')
 let titulotorneo = document.querySelector('#titulotorneo')
 let fechatorneo = document.querySelector('#fechatorneo')
 let nuevotorneo = document.querySelector('#nuevotorneo')
+let modo = document.querySelector('#modo');
+let formtorneo = document.querySelector('#formtorneo');
+let torneoscreados = document.querySelector('#torneoscreados');
 
 
 function iniciar(){
     torneo1.style.display = 'none';
     torneo2.style.display = 'none';
-    torneo3.style.display = 'none';
-    torneo4.style.display = 'none';
     crear.style.display = 'flex';
     editar.style.display = 'flex';
     anotarse.style.display = 'flex';
@@ -42,13 +36,8 @@ function iniciar(){
     editarSection.style.display = 'flex';
     anotarseSection.style.display = 'flex';
     resultadosSection.style.display = 'flex';
-    navflechas.style.display= 'none';
-    docerasosesenta.style.display= 'none';
-    docerasocuarenta.style.display= 'none';
-    dieciochorasocuarenta.style.display= 'none';
-    dieciocholibrecuarenta.style.display= 'none';
     usuariostorneo.style.display= 'none';
-    formatotorneo.style.display= 'none';
+    torneoscreados.style.display= 'none';
 }
 
 iniciar();
@@ -93,28 +82,11 @@ torneo2.addEventListener('click', function(event) {
     event.preventDefault();
     creation('modalidadDos');
 });
-docerasosesenta.addEventListener('click', function(event) {
-    event.preventDefault();
-    creation('modouno');
-});
-docerasocuarenta.addEventListener('click', function(event) {
-    event.preventDefault();
-    creation('mododos');
-});
-dieciochorasocuarenta.addEventListener('click', function(event) {
-    event.preventDefault();
-    creation('modotres');
-});
-dieciocholibrecuarenta.addEventListener('click', function(event) {
-    event.preventDefault();
-    creation('modocuatro');
-});
+
 
 function creation (options){
     torneo1.style.display = 'none';
     torneo2.style.display = 'none';
-    torneo3.style.display = 'none';
-    torneo4.style.display = 'none';
     crear.style.display = 'none';
     editar.style.display = 'none';
     anotarse.style.display = 'none';
@@ -124,21 +96,14 @@ function creation (options){
     editarSection.style.display = 'none';
     anotarseSection.style.display = 'none';
     resultadosSection.style.display = 'none';
-    navflechas.style.display= 'none';
-    docerasosesenta.style.display= 'none';
-    docerasocuarenta.style.display= 'none';
-    dieciochorasocuarenta.style.display= 'none';
-    dieciocholibrecuarenta.style.display= 'none';
     usuariostorneo.style.display= 'none';
-    formatotorneo.style.display= 'none';  
+    torneoscreados.style.display= 'none';
 
     switch (options){
         case 'crear':
         case 'creacion':
             torneo1.style.display = 'flex';
             torneo2.style.display = 'flex';
-            torneo3.style.display = 'none';
-            torneo4.style.display = 'none';
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
@@ -148,20 +113,17 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            navflechas.style.display = 'none';
-            docerasosesenta.style.display= 'none';
-            docerasocuarenta.style.display= 'none';
-            dieciochorasocuarenta.style.display= 'none';
-            dieciocholibrecuarenta.style.display= 'none';
+            torneoscreados.style.display= 'none';
             usuariostorneo.style.display= 'none'; 
+            Array.from(formtorneo.querySelectorAll('input')).forEach(input => {
+                input.disabled = false;
+            });
             break;
 
         case 'editar':
         case 'edicion':
             torneo1.style.display = 'none';
             torneo2.style.display = 'none';
-            torneo3.style.display = 'flex';
-            torneo4.style.display = 'flex';
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
@@ -171,20 +133,14 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            navflechas.style.display = 'none';
-            docerasosesenta.style.display= 'none';
-            docerasocuarenta.style.display= 'none';
-            dieciochorasocuarenta.style.display= 'none';
-            dieciocholibrecuarenta.style.display= 'none'; 
             usuariostorneo.style.display= 'none';
+            torneoscreados.style.display= 'flex';
             break;
 
         case 'anotarse':
         case 'anotacion':
             torneo1.style.display = 'none';
             torneo2.style.display = 'none';
-            torneo3.style.display = 'flex';
-            torneo4.style.display = 'flex';
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
@@ -194,11 +150,6 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            navflechas.style.display = 'none';
-            docerasosesenta.style.display= 'none';
-            docerasocuarenta.style.display= 'none';
-            dieciochorasocuarenta.style.display= 'none';
-            dieciocholibrecuarenta.style.display= 'none'; 
             usuariostorneo.style.display= 'none';  
             break;
 
@@ -206,8 +157,6 @@ function creation (options){
         case 'result':
             torneo1.style.display = 'none';
             torneo2.style.display = 'none';
-            torneo3.style.display = 'flex';
-            torneo4.style.display = 'flex';
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
@@ -217,11 +166,6 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            navflechas.style.display = 'none';
-            docerasosesenta.style.display= 'none';
-            docerasocuarenta.style.display= 'none';
-            dieciochorasocuarenta.style.display= 'none';
-            dieciocholibrecuarenta.style.display= 'none'; 
             usuariostorneo.style.display= 'none';  
             break;
 
@@ -229,8 +173,6 @@ function creation (options){
         case 'modalidadDos':
             torneo1.style.display = 'none';
             torneo2.style.display = 'none';
-            torneo3.style.display = 'none';
-            torneo4.style.display = 'none';
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
@@ -240,70 +182,40 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            navflechas.style.display = 'flex';
-            docerasosesenta.style.display= 'flex';
-            docerasocuarenta.style.display= 'flex';
-            dieciochorasocuarenta.style.display= 'flex';
-            dieciocholibrecuarenta.style.display= 'flex';
             usuariostorneo.style.display= 'flex';    
             break;
-        case 'modouno':
-        case 'mododos':
-        case 'modotres':
-        case 'modocuatro':
-            torneo1.style.display = 'none';
-            torneo2.style.display = 'none';
-            torneo3.style.display = 'none';
-            torneo4.style.display = 'none';
-            crear.style.display = 'none';
-            editar.style.display = 'none';
-            anotarse.style.display = 'none';
-            resultados.style.display = 'none';
-            navtorneos.style.display = 'flex';
-            crearSection.style.display = 'flex';
-            editarSection.style.display = 'flex';
-            anotarseSection.style.display = 'flex';
-            resultadosSection.style.display = 'flex';
-            navflechas.style.display = 'flex';
-            docerasosesenta.style.display= 'flex';
-            docerasocuarenta.style.display= 'flex';
-            dieciochorasocuarenta.style.display= 'flex';
-            dieciocholibrecuarenta.style.display= 'flex';
-            usuariostorneo.style.display= 'flex'; 
-            break;
-        case 'creaciontorneo':
-            torneo1.style.display = 'none';
-            torneo2.style.display = 'none';
-            torneo3.style.display = 'flex';  
-            torneo4.style.display = 'none';
-            crear.style.display = 'none';
-            editar.style.display = 'none';
-            anotarse.style.display = 'none';
-            resultados.style.display = 'none';
-            navtorneos.style.display = 'flex';
-            crearSection.style.display = 'none';
-            editarSection.style.display = 'none';
-            anotarseSection.style.display = 'none';
-            resultadosSection.style.display = 'none';
-            navflechas.style.display = 'none';
-            docerasosesenta.style.display = 'none';
-            docerasocuarenta.style.display = 'none';
-            dieciochorasocuarenta.style.display = 'none';
-            dieciocholibrecuarenta.style.display = 'none'; 
-            usuariostorneo.style.display = 'none'; 
-            break;
-    
         
         default:
             navtorneos.style.display = 'flex';
-            navflechas.style.display = 'none';
-            docerasosesenta.style.display = 'none';
-            docerasocuarenta.style.display = 'none';
-            dieciochorasocuarenta.style.display = 'none';
-            dieciocholibrecuarenta.style.display = 'none';
             usuariostorneo.style.display = 'none';
             break;
         }
 }
 
 
+nuevotorneo.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+        alert('Por favor, ingrese todos los datos');
+        return;
+    }
+
+    let titulo = titulotorneo.value;
+    let fecha = fechatorneo.value;
+    let modalidad = modo.value;
+
+    let nuevoTorneo = document.createElement('div');
+    nuevoTorneo.className = 'torneo'; 
+    nuevoTorneo.innerHTML = `
+        <h3>${titulo}</h3>
+        <p>${fecha}</p>
+        <p>${modalidad}</p>
+
+    `;
+    
+    // Insertar el nuevo torneo en el lugar deseado
+    document.querySelector('#torneoscreados').insertAdjacentElement('beforeend', nuevoTorneo);
+    alert('Datos guardados');
+    formtorneo.reset();
+    iniciar();
+});
