@@ -253,6 +253,58 @@ h2{
         #torneo3 h3{
             padding: 10px;
         }
+        .torneo{
+            width: 200px;
+            height: 150px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Raleway;
+            color: #000000;
+            background-color: #fff;
+            line-height: 1.6;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+        }
+        .torneo:hover{
+            transition: .5s;
+            background-color: #B43F3F;
+            color: white;
+            border-radius: 16px;
+            border: 1px solid  #8c3232;
+            cursor: pointer;
+        }
+        .torneo h3{
+            padding: 10px;
+        }
+        #formtorneo select {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+            background-color: #F4F4F4;
+            padding: 16px;
+            font-family: Raleway;
+            font-weight: 600;
+            color: #707070;
+            margin-bottom: 16px;
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+        }
+        
+        #formtorneo select:focus {
+            border-color: #FF8225; 
+        }
+        #torneoscreados{
+            width: 1000px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-evenly;
+            }
 /*##### main perfil  #####*/
 
 #fondo-profile{
