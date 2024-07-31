@@ -32,12 +32,6 @@
             <a href="#" id="anotarsesection">Anotarse</a>
             <a href="#" id="resultadossection">Resultados</a>
         </nav>
-        <!-- <nav id="navflechas">
-            <a href="" id="docerasosesenta">12m Raso 60cm</a>
-            <a href="" id="docerasocuarenta">12m Raso 40cm</a>
-            <a href="" id="dieciochorasocuarenta">18m Raso 40cm</a>
-            <a href="" id="dieciocholibrecuarenta">18m Libre 40cm</a>
-        </nav> -->
         <section>
             <article id="crear">
                     <a href="#" id="btnCrear">
@@ -57,57 +51,22 @@
                     </a>
                     <h3>Eliminatorias</h3> 
             </article>
-            <div id="torneo3">
-                <a href="#">
-                    <img src="/imgs/trofeo.png" alt="">
-                </a>
-                <h3>Torneo3</h3> 
+            <div id="torneoscreados">
             </div>
-                    <article id="torneo4">
-                    <a href="#">
-                        <img src="/imgs/medalla.png" alt="">
-                    </a>
-                    <h3>Torneo4</h3> 
-            </article>
             <div id="usuariostorneo">
-            <form action="">
+            <form action="" id="formtorneo">
                 <input type="text" placeholder="Título:" id="titulotorneo">
                 <input type="text" placeholder="Fecha:" id="fechatorneo">
+                <select id="modo">
+                    <option value="" disabled selected>Modalidad:</option>
+                    <option value="12m Raso 60cm">12m Raso 60cm</option>
+                    <option value="12m Raso 40cm">12m Raso 40cm</option>
+                    <option value="18m Raso 40cm">18m Raso 40cm</option>
+                    <option value="18m Libre 40cm">18m Libre 40cm</option>
+                </select>
                 <button id="nuevotorneo">Crear</button>
             </form>
-
-            <table id="formatotorneo">
-                <thead>
-                <tr>
-                    <th>Título</th>
-                    <th>Fecha</th>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>DNI</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Juan Pérez</td>
-                        <td>juan.perez@example.com</td>
-                        <td>2024-01-15</td>
-                        <td>
-                            <a href="#">Editar</a> | <a href="#">Eliminar</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Ana Gómez</td>
-                        <td>ana.gomez@example.com</td>
-                        <td>2024-02-22</td>
-                        <td>
-                            <a href="#">Editar</a> | <a href="#">Eliminar</a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            </div>
             <article id="editar">
                     <a href="" id="btnEditar">
                         <img src="/imgs/editar.png" alt="">
