@@ -229,7 +229,7 @@ h2{
         }
         .torneo{
             width: 200px;
-            height: 200px;
+            height: 250px;
             margin: auto;
             display: flex;
             flex-direction: column;
@@ -278,7 +278,6 @@ h2{
         #torneoscreados, #torneospublicados{
             width: 1000px;
             margin: auto;
-            padding: 30px;
             border-radius: 16px;
             display: flex;
             justify-content: space-evenly;
@@ -315,10 +314,7 @@ h2{
             background-color: #ca6b22;
 
         }
-        .arqueros-list span { 
-            display: block; 
-            margin: 5px 0; 
-        }
+
 /*##### main perfil  #####*/
 
 #fondo-profile{
