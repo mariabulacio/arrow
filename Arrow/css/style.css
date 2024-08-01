@@ -256,6 +256,7 @@ h2{
         .torneo p{
             margin-bottom: 5px;
         }
+        
         #formtorneo select {
             width: 100%;
             border-radius: 12px;
@@ -274,7 +275,7 @@ h2{
         #formtorneo select:focus {
             border-color: #FF8225; 
         }
-        #torneoscreados{
+        #torneoscreados, #torneospublicados{
             width: 1000px;
             margin: auto;
             padding: 30px;
@@ -297,6 +298,26 @@ h2{
         .newtorneo:hover{
             background-color: #ca6b22;
 
+        }
+        .editorn{
+            background-color: #FF8225;
+            color: #fff;
+            transition: .3s;
+            padding: 12px 16px;
+            margin-top: 10px;
+            width: 50%;
+            border-radius: 12px;
+            border:none;
+            font-family: Raleway;
+            font-weight: 600;
+        }
+        .editorn:hover{
+            background-color: #ca6b22;
+
+        }
+        .arqueros-list span { 
+            display: block; 
+            margin: 5px 0; 
         }
 /*##### main perfil  #####*/
 
