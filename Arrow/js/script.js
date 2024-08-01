@@ -26,6 +26,7 @@ let torneospublicados = document.querySelector('#torneospublicados');
 let currentTorneo = null;
 
 
+
 function iniciar(){
     torneo1.style.display = 'none';
     torneo2.style.display = 'none';
@@ -200,6 +201,44 @@ function creation (options){
 }
 
 //funciona paso anterior
+// nuevotorneo.addEventListener('click', function(event) {
+//     event.preventDefault();
+//     if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+//         alert('Por favor, ingrese todos los datos');
+//         return;
+//     }
+
+//     let titulo = titulotorneo.value;
+//     let fecha = fechatorneo.value;
+//     let modalidad = modo.value;
+
+//     let nuevoTorneo = document.createElement('div');
+//     nuevoTorneo.className = 'torneo'; 
+//     nuevoTorneo.innerHTML = `
+//         <h3>${titulo}</h3>
+//         <p>${fecha}</p>
+//         <p>${modalidad}</p>
+//         <button class="editorn">Editar</button>
+//         <button class="newtorneo">Publicar</button>
+
+//     `;
+
+//     nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
+//         usuariostorneo.style.display= 'flex';
+//         nuevotorneo.style.display= 'none';
+        
+//     });
+//     nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
+//         document.querySelector('#torneospublicados').insertAdjacentElement('beforeend', nuevoTorneo);
+//     });
+//     document.querySelector('#torneoscreados').insertAdjacentElement('beforeend', nuevoTorneo);
+
+//     alert('Datos guardados');
+//     formtorneo.reset();
+//     iniciar();
+// });
+
+
 nuevotorneo.addEventListener('click', function(event) {
     event.preventDefault();
     if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
@@ -223,8 +262,9 @@ nuevotorneo.addEventListener('click', function(event) {
     `;
 
     nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
-        editorneo.style.display= 'flex';
-
+        usuariostorneo.style.display= 'flex';
+        nuevotorneo.style.display= 'none';
+        
     });
     nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
         document.querySelector('#torneospublicados').insertAdjacentElement('beforeend', nuevoTorneo);
@@ -235,5 +275,3 @@ nuevotorneo.addEventListener('click', function(event) {
     formtorneo.reset();
     iniciar();
 });
-
-
