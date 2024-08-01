@@ -238,7 +238,36 @@ function creation (options){
 //     iniciar();
 // });
 
+let guardar=document.createElement('button');
+guardar.type='submit';
+guardar.textContent='Guardar';
+guardar.className = 'btnguardar';
+let cancelar=document.createElement('button');
+cancelar.type='submit';
+cancelar.textContent='Cancelar';
+cancelar.className = 'btn-cancelar'; 
+guardar.addEventListener('click', function(event) {
+    event.preventDefault();
+    if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+        alert('Por favor, ingrese todos los datos');
+        return;
+    }
 
+    let titu = titulotorneo.value;
+    let fech= fechatorneo.value;
+    let modali = modo.value;
+
+    let nuevoTorn = document.createElement('div');
+    nuevoTorn.className = 'torn'; 
+    nuevoTorn.innerHTML = `
+        <h3>${titu}</h3>
+        <p>${fech}</p>
+        <p>${modali}</p>
+
+    `;
+        document.querySelector('#torneoscreados').insertAdjacentElement('beforeend', nuevoTorn);
+        usuariostorneo.style.display= 'none';
+});
 nuevotorneo.addEventListener('click', function(event) {
     event.preventDefault();
     if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
@@ -264,8 +293,12 @@ nuevotorneo.addEventListener('click', function(event) {
     nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
         usuariostorneo.style.display= 'flex';
         nuevotorneo.style.display= 'none';
-        
+        formtorneo.appendChild(guardar);
+        formtorneo.appendChild(cancelar);
     });
+
+    
+
     nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
         document.querySelector('#torneospublicados').insertAdjacentElement('beforeend', nuevoTorneo);
     });
