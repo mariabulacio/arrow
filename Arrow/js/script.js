@@ -21,6 +21,10 @@ let fechatorneo = document.querySelector('#fechatorneo')
 let nuevotorneo = document.querySelector('#nuevotorneo')
 let modo = document.querySelector('#modo');
 let formtorneo = document.querySelector('#formtorneo');
+let arqueros = document.querySelector('#arqueros');
+let torneoscreados = document.querySelector('#torneoscreados');
+let torneospublicados = document.querySelector('#torneospublicados');
+let currentTorneo = null;
 
 
 function iniciar(){
@@ -37,6 +41,7 @@ function iniciar(){
     resultadosSection.style.display = 'flex';
     usuariostorneo.style.display= 'none';
     torneoscreados.style.display= 'none';
+    torneospublicados.style.display= 'none';
 }
 
 iniciar();
@@ -97,6 +102,7 @@ function creation (options){
     resultadosSection.style.display = 'none';
     usuariostorneo.style.display= 'none';
     torneoscreados.style.display= 'none';
+    torneospublicados.style.display= 'none';
 
     switch (options){
         case 'crear':
@@ -113,6 +119,7 @@ function creation (options){
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
             torneoscreados.style.display= 'none';
+            torneospublicados.style.display= 'none';
             usuariostorneo.style.display= 'none'; 
             Array.from(formtorneo.querySelectorAll('input')).forEach(input => {
                 input.disabled = false;
@@ -134,6 +141,7 @@ function creation (options){
             resultadosSection.style.display = 'flex';
             usuariostorneo.style.display= 'none';
             torneoscreados.style.display= 'flex';
+            torneospublicados.style.display= 'none';
             break;
 
         case 'anotarse':
@@ -149,7 +157,8 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            usuariostorneo.style.display= 'none';  
+            usuariostorneo.style.display= 'none'; 
+            torneospublicados.style.display= 'flex'; 
             break;
 
         case 'resultados':
@@ -191,10 +200,10 @@ function creation (options){
         }
 }
 
-
+//funciona paso anterior
 nuevotorneo.addEventListener('click', function(event) {
     event.preventDefault();
-    if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+    if (!titulotorneo.value || !fechatorneo.value || !modo.value || !arqueros.value) {
         alert('Por favor, ingrese todos los datos');
         return;
     }
@@ -203,24 +212,166 @@ nuevotorneo.addEventListener('click', function(event) {
     let fecha = fechatorneo.value;
     let modalidad = modo.value;
 
+    let arquerosValue = arqueros.value.trim();
+    let arquerosArray = arquerosValue.split(',').map(ar => ar.trim()).filter(ar => ar.length > 0);
+
     let nuevoTorneo = document.createElement('div');
     nuevoTorneo.className = 'torneo'; 
     nuevoTorneo.innerHTML = `
         <h3>${titulo}</h3>
         <p>${fecha}</p>
         <p>${modalidad}</p>
-        <button class="newtorneo">Editar</button>
+        <h4>Arqueros:${arquerosArray.map(ar => `<span>${ar}</span>`).join('')}</h4>
+        <button class="editorn">Editar</button>
+        <button class="newtorneo">Publicar</button>
 
     `;
     document.querySelector('#torneoscreados').insertAdjacentElement('beforeend', nuevoTorneo);
+
+    nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
+        formtorneo.style.display = 'flex';
+        nuevotorneo.style.display = 'none';
+        <button class="editorn">Guardar</button>
+        <button class="newtorneo">Cncaelar</button>
+
+    });
     nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
-        alert(`Detalles del torneo:\nTítulo: ${titulo}\nFecha: ${fecha}\nModalidad: ${modalidad}`);
+        document.querySelector('#torneospublicados').insertAdjacentElement('beforeend', nuevoTorneo);
     });
 
     alert('Datos guardados');
     formtorneo.reset();
     iniciar();
 });
+
+// //funciona paso siguiente
+// nuevotorneo.addEventListener('click', function(event) {
+//     event.preventDefault();
+//     if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+//         alert('Por favor, ingrese todos los datos');
+//         return;
+//     }
+
+//     let titulo = titulotorneo.value;
+//     let fecha = fechatorneo.value;
+//     let modalidad = modo.value;
+
+//     let arquerosValue = arqueros.value.trim();
+//     let arquerosArray = arquerosValue.split(',').map(ar => ar.trim()).filter(ar => ar.length > 0);
+
+//     let nuevoTorneo = document.createElement('div');
+//     nuevoTorneo.className = 'torneo';
+//     nuevoTorneo.dataset.id = Date.now(); // Utiliza un timestamp como ID único
+//     nuevoTorneo.innerHTML = `
+//         <h3>${titulo}</h3>
+//         <p>${fecha}</p>
+//         <p>${modalidad}</p>
+//         <h4>Arqueros:</h4>
+//         <div class="arqueros-list">
+//             ${arquerosArray.map(ar => `<span>${ar}</span>`).join('')}
+//         </div>
+//         <button class="edit-button">Editar</button>
+//         <button class="publish-button">Publicar</button>
+//     `;
+
+//     torneoscreados.insertAdjacentElement('beforeend', nuevoTorneo);
+
+//     nuevoTorneo.querySelector('.edit-button').addEventListener('click', function() {
+//         // Configura el torneo actual para edición
+//         currentTorneo = nuevoTorneo;
+//         titulotorneo.value = titulo;
+//         fechatorneo.value = fecha;
+//         modo.value = modalidad;
+//         arqueros.value = arquerosArray.join(', ');
+
+//         // Muestra el formulario de edición
+//         formtorneo.style.display = 'block';
+//         nuevotorneo.style.display = 'none';
+//     });
+
+//     nuevoTorneo.querySelector('.publish-button').addEventListener('click', function() {
+//         alert(`Detalles del torneo:\nTítulo: ${titulo}\nFecha: ${fecha}\nModalidad: ${modalidad}`);
+//     });
+
+//     alert('Datos guardados');
+//     formtorneo.reset();
+//     iniciar();
+// });
+
+// // Agrega un botón de guardar cambios
+// let saveChangesButton = document.createElement('button');
+// saveChangesButton.textContent = 'Guardar Cambios';
+// saveChangesButton.id = 'saveChanges';
+// saveChangesButton.style.display = 'none'; // Oculto por defecto
+// document.body.appendChild(saveChangesButton);
+
+// saveChangesButton.addEventListener('click', function() {
+//     if (currentTorneo) {
+//         if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+//             alert('Por favor, ingrese todos los datos');
+//             return;
+//         }
+
+//         let titulo = titulotorneo.value;
+//         let fecha = fechatorneo.value;
+//         let modalidad = modo.value;
+
+//         let arquerosValue = arqueros.value.trim();
+//         let arquerosArray = arquerosValue.split(',').map(ar => ar.trim()).filter(ar => ar.length > 0);
+
+//         // Actualiza el torneo existente
+//         currentTorneo.innerHTML = `
+//             <h3>${titulo}</h3>
+//             <p>${fecha}</p>
+//             <p>${modalidad}</p>
+//             <h4>Arqueros:</h4>
+//             <div class="arqueros-list">
+//                 ${arquerosArray.map(ar => `<span>${ar}</span>`).join('')}
+//             </div>
+//             <button class="edit-button">Editar</button>
+//             <button class="publish-button">Publicar</button>
+//         `;
+
+//         currentTorneo.querySelector('.edit-button').addEventListener('click', function() {
+//             // Configura el torneo actual para edición
+//             currentTorneo = nuevoTorneo;
+//             titulotorneo.value = titulo;
+//             fechatorneo.value = fecha;
+//             modo.value = modalidad;
+//             arqueros.value = arquerosArray.join(', ');
+
+//             // Muestra el formulario de edición
+//             formtorneo.style.display = 'block';
+//             nuevotorneo.style.display = 'none';
+//         });
+
+//         currentTorneo.querySelector('.publish-button').addEventListener('click', function() {
+//             alert(`Detalles del torneo:\nTítulo: ${titulo}\nFecha: ${fecha}\nModalidad: ${modalidad}`);
+//         });
+
+//         // Oculta el botón de guardar cambios
+//         saveChangesButton.style.display = 'none';
+
+//         alert('Cambios guardados');
+//         formtorneo.reset();
+//         iniciar();
+//     }
+// });
+
+// // Mostrar el botón de guardar cambios cuando se edita un torneo
+// function startEditing() {
+//     saveChangesButton.style.display = 'block';
+//     formtorneo.style.display = 'block';
+//     nuevotorneo.style.display = 'none';
+// }
+
+
+
+
+
+
+
+
 
 // let formEditar = document.getElementById('form-editar');
 //     let editTitulo = document.getElementById('edit-titulo');
