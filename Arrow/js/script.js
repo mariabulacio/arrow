@@ -201,104 +201,209 @@ function creation (options){
 }
 
 
-let guardar=document.createElement('button');
-guardar.type='submit';
-guardar.textContent='Guardar';
+let divEditando = null;
+let guardar = document.createElement('button');
+guardar.type = 'submit';
+guardar.textContent = 'Guardar';
 guardar.className = 'btnguardar';
-let cancelar=document.createElement('button');
-cancelar.type='submit';
-cancelar.textContent='Cancelar';
-cancelar.className = 'btn-cancelar';
- 
+let cupo = document.createElement('button');
+cupo.type = 'submit';
+cupo.textContent = 'Inscribirse';
+cupo.className = 'btncupo';
+
+function manejarEstado(accion) {
+    switch (accion) {
+        case 'guardar':
+            if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+                alert('Por favor, ingrese todos los datos');
+                return;
+            }
+
+            let titu = titulotorneo.value;
+            let fech = fechatorneo.value;
+            let modali = modo.value;
+
+            if (divEditando) {
+                divEditando.querySelector('h3').textContent = titu;
+                divEditando.querySelector('p:nth-of-type(1)').textContent = fech;
+                divEditando.querySelector('p:nth-of-type(2)').textContent = modali;
+
+                let botonCupo = divEditando.querySelector('.btncupo');
+                if (botonCupo) {
+                    botonCupo.remove();
+                }
+
+                divEditando.style.display = 'block';
+                divEditando = null;
+                formtorneo.reset();
+                usuariostorneo.style.display = 'none';
+                torneoscreados.style.display = 'flex';
+                return;
+            }
+
+            let nuevoTorn = document.createElement('div');
+            nuevoTorn.className = 'torn';
+            nuevoTorn.innerHTML = `
+                <h3>${titu}</h3>
+                <p>${fech}</p>
+                <p>${modali}</p>
+                <button class="ditorn">Editar</button>
+                <button class="nwtorn">Publicar</button>
+            `;
+
+            nuevoTorn.querySelector('.ditorn').addEventListener('click', function() {
+                divEditando = nuevoTorn;
+                usuariostorneo.style.display = 'flex';
+                nuevotorneo.style.display = 'none';
+                formtorneo.appendChild(guardar);
+                nuevoTorn.style.display = 'block';
+                torneoscreados.style.display = 'none';
+            });
+
+            nuevoTorn.querySelector('.nwtorn').addEventListener('click', function() {
+                let contenedorPublicados = document.querySelector('#torneospublicados');
+                let botonEditar = nuevoTorn.querySelector('.ditorn');
+                let botonPublicar = nuevoTorn.querySelector('.nwtorn');
+                if (botonEditar) botonEditar.remove();
+                if (botonPublicar) botonPublicar.remove();
+
+                let nuevoCupo = document.createElement('button');
+                nuevoCupo.type = 'submit';
+                nuevoCupo.textContent = 'Inscribirse';
+                nuevoCupo.className = 'btncupo';
+
+                nuevoTorn.appendChild(nuevoCupo);
+
+                document.querySelector('#torneoscreados').removeChild(nuevoTorn);
+                contenedorPublicados.appendChild(nuevoTorn);
+            });
+
+            document.querySelector('#torneoscreados').appendChild(nuevoTorn);
+            usuariostorneo.style.display = 'none';
+            torneoscreados.style.display = 'flex';
+            break;
+
+        case 'nuevotorneo':
+            if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
+                alert('Por favor, ingrese todos los datos');
+                return;
+            }
+
+            let titulo = titulotorneo.value;
+            let fecha = fechatorneo.value;
+            let modalidad = modo.value;
+
+            let nuevoTorneo = document.createElement('div');
+            nuevoTorneo.className = 'torneo'; 
+            nuevoTorneo.innerHTML = `
+                <h3>${titulo}</h3>
+                <p>${fecha}</p>
+                <p>${modalidad}</p>
+                <button class="editorn">Editar</button>
+                <button class="newtorneo">Publicar</button>
+            `;
+
+            nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
+                divEditando = nuevoTorneo;
+                usuariostorneo.style.display = 'flex';
+                nuevotorneo.style.display = 'none';
+                formtorneo.appendChild(guardar);
+                nuevoTorneo.style.display = 'block';
+                torneoscreados.style.display = 'none';
+            });
+
+            nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
+                let contenedorPublicados = document.querySelector('#torneospublicados');
+                let botonEditar = nuevoTorneo.querySelector('.editorn');
+                let botonPublicar = nuevoTorneo.querySelector('.newtorneo');
+                if (botonEditar) botonEditar.remove();
+                if (botonPublicar) botonPublicar.remove();
+
+                let nuevoCupo = document.createElement('button');
+                nuevoCupo.type = 'submit';
+                nuevoCupo.textContent = 'Inscribirse';
+                nuevoCupo.className = 'btncupo';
+
+                nuevoTorneo.appendChild(nuevoCupo);
+
+                document.querySelector('#torneoscreados').removeChild(nuevoTorneo);
+                contenedorPublicados.appendChild(nuevoTorneo);
+            });
+
+            document.querySelector('#torneoscreados').appendChild(nuevoTorneo);
+            alert('Datos guardados');
+            formtorneo.reset();
+            iniciar();
+            break;
+    }
+}
+
+
 guardar.addEventListener('click', function(event) {
     event.preventDefault();
-    if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
-        alert('Por favor, ingrese todos los datos');
-        return;
-    }
-
-    let titu = titulotorneo.value;
-    let fech= fechatorneo.value;
-    let modali = modo.value;
-
-    let nuevoTorn = document.createElement('div');
-    nuevoTorn.className = 'torn'; 
-    nuevoTorn.innerHTML = `
-        <h3>${titu}</h3>
-        <p>${fech}</p>
-        <p>${modali}</p>
-        <button class="ditorn">Editar</button>
-        <button class="nwtorn">Publicar</button>
-
-    `;
-    nuevoTorn.querySelector('.ditorn').addEventListener('click', function() {
-        usuariostorneo.style.display= 'flex';
-        
-        nuevotorneo.style.display= 'none';
-        formtorneo.appendChild(guardar);
-        formtorneo.appendChild(cancelar);
-        nuevoTorn.style.display='none';
-    });
-
-    nuevoTorn.querySelector('.nwtorn').addEventListener('click', function() {
-        document.querySelector('#torneospublicados').insertAdjacentElement('beforeend', nuevoTorn);
-        // let borrabtn=document.querySelectorAll('button');
-        // borrabtn.forEach(function(botn){
-        //     botn.remove();
-        // });
-    });
-        document.querySelector('#torneoscreados').insertAdjacentElement('beforeend', nuevoTorn);
-        usuariostorneo.style.display= 'none';
-        torneoscreados.style.display='flex'
-        
+    manejarEstado('guardar');
 });
-cancelar.addEventListener('click', function(event) {
-    event.preventDefault();
-});
+
 nuevotorneo.addEventListener('click', function(event) {
     event.preventDefault();
-    if (!titulotorneo.value || !fechatorneo.value || !modo.value) {
-        alert('Por favor, ingrese todos los datos');
-        return;
-    }
-
-    let titulo = titulotorneo.value;
-    let fecha = fechatorneo.value;
-    let modalidad = modo.value;
-
-    let nuevoTorneo = document.createElement('div');
-    nuevoTorneo.className = 'torneo'; 
-    nuevoTorneo.innerHTML = `
-        <h3>${titulo}</h3>
-        <p>${fecha}</p>
-        <p>${modalidad}</p>
-        <button class="editorn">Editar</button>
-        <button class="newtorneo">Publicar</button>
-
-    `;
-
-    nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
-        usuariostorneo.style.display= 'flex';
-        nuevotorneo.style.display= 'none';
-        formtorneo.appendChild(guardar);
-        formtorneo.appendChild(cancelar);
-        nuevoTorneo.style.display='none';
-        torneoscreados.style.display='none'
-    });
-
-    
-
-    nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
-        document.querySelector('#torneospublicados').insertAdjacentElement('beforeend', nuevoTorneo);
-        let borrarbtn=document.querySelectorAll('button');
-        borrarbtn.forEach(function(boton){
-            boton.remove();
-        });
-
-    });
-    document.querySelector('#torneoscreados').insertAdjacentElement('beforeend', nuevoTorneo);
-
-    alert('Datos guardados');
-    formtorneo.reset();
-    iniciar();
+    manejarEstado('nuevotorneo');
 });
+
+//section series
+let practicasection = document.querySelector('#practicasection');
+let alumnosection = document.querySelector('#alumnosection');
+let practica = document.querySelector('#practica');
+let btnPractica = document.querySelector('#btnPractica');
+let torneoAlumno = document.querySelector('#torneoAlumno');
+let btnAlumno = document.querySelector('#btnAlumno');
+let practicaAlumnos = document.querySelector('#practicaAlumnos');
+let torneoAlumnos = document.querySelector('#torneoAlumnos');
+
+function seteo(){
+    practicasection.style.display = 'flex';
+    alumnosection.style.display = 'flex';
+    practica.style.display = 'flex';
+    torneoAlumno.style.display = 'flex';
+    practicaAlumnos.style.display = 'none';
+    torneoAlumnos.style.display = 'none';
+}
+seteo();
+
+btnPractica.addEventListener('click', function(event) {
+    event.preventDefault();
+    seccion('practicando');
+});
+btnAlumno.addEventListener('click', function(event) {
+    event.preventDefault();
+    seccion('cursando');
+});
+
+function seccion(arco){
+    practicasection.style.display = 'none';
+    alumnosection.style.display = 'none';
+    practica.style.display = 'none';
+    torneoAlumno.style.display = 'none';
+    practicaAlumnos.style.display = 'none';
+    torneoAlumnos.style.display = 'none';
+
+    switch(arco){
+        case 'practicando':
+            practicasection.style.display = 'flex';
+            alumnosection.style.display = 'flex';
+            practica.style.display = 'none';
+            torneoAlumno.style.display = 'none';
+            practicaAlumnos.style.display = 'flex';
+            torneoAlumnos.style.display = 'none';
+            break;
+        case 'cursando':
+            practicasection.style.display = 'flex';
+            alumnosection.style.display = 'flex';
+            practica.style.display = 'none';
+            torneoAlumno.style.display = 'none';
+            practicaAlumnos.style.display = 'none';
+            torneoAlumnos.style.display = 'flex';
+            break;
+            default:
+            break;
+    }
+}
