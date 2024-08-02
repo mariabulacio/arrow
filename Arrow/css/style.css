@@ -477,6 +477,35 @@ h2{
             display: flex;
             justify-content: space-evenly;
         }
+        #fiscalizar{
+            width: 200px;
+            height: 250px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Raleway;
+            color: #000000;
+            background-color: #fff;
+            line-height: 1.6;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+        }
+        #fiscalizar:hover{
+            transition: .5s;
+            background-color: #B43F3F;
+            color: white;
+            border-radius: 16px;
+            border: 1px solid  #8c3232;
+            cursor: pointer;
+        }
+        .fiscalizar h3{
+            padding: 10px;
+        }
+        .fiscalizar p{
+            margin-bottom: 5px;
+        }
 /*##### main contacto  #####*/
 #fondo-contacto{
 
