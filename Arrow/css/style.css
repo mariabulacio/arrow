@@ -227,7 +227,7 @@ h2{
             padding: 8px;
             background-color: white;
         }
-        .torneo{
+        .torneo, .torn{
             width: 200px;
             height: 250px;
             margin: auto;
@@ -242,7 +242,7 @@ h2{
             border-radius: 16px;
             border: 1px solid #e8e8e8;
         }
-        .torneo:hover{
+        .torneo:hover, .torn:hover{
             transition: .5s;
             background-color: #B43F3F;
             color: white;
@@ -250,42 +250,13 @@ h2{
             border: 1px solid  #8c3232;
             cursor: pointer;
         }
-        .torneo h3{
+        .torneo h3, .torn h3{
             padding: 10px;
         }
-        .torneo p{
+        .torneo p, .torn p{
             margin-bottom: 5px;
         }
-        .torn{
-            width: 200px;
-            height: 250px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: Raleway;
-            color: #000000;
-            background-color: #fff;
-            line-height: 1.6;
-            border-radius: 16px;
-            border: 1px solid #e8e8e8;
-        }
-        .torn:hover{
-            transition: .5s;
-            background-color: #B43F3F;
-            color: white;
-            border-radius: 16px;
-            border: 1px solid  #8c3232;
-            cursor: pointer;
-        }
-        .torneo h3{
-            padding: 10px;
-        }
-        .torn p{
-            margin-bottom: 5px;
-        }
-        
+
         #formtorneo select {
             width: 100%;
             border-radius: 12px;
@@ -311,7 +282,7 @@ h2{
             display: flex;
             justify-content: space-evenly;
             }
-        .newtorneo{
+        .newtorneo, .editorn, .nwtorn, .ditorn,.btncupo, .btn{
             background-color: #FF8225;
             color: #fff;
             transition: .3s;
@@ -323,73 +294,8 @@ h2{
             font-family: Raleway;
             font-weight: 600;
         }
-        .newtorneo:hover{
+        .newtorneo:hover, .editorn:hover, .nwtorn:hover, .ditorn:hover, .btncupo:hover, .btn:hover{
             background-color: #ca6b22;
-
-        }
-        .editorn{
-            background-color: #FF8225;
-            color: #fff;
-            transition: .3s;
-            padding: 12px 16px;
-            margin-top: 10px;
-            width: 50%;
-            border-radius: 12px;
-            border:none;
-            font-family: Raleway;
-            font-weight: 600;
-        }
-        .editorn:hover{
-            background-color: #ca6b22;
-
-        }
-        .nwtorn{
-            background-color: #FF8225;
-            color: #fff;
-            transition: .3s;
-            padding: 12px 16px;
-            margin-top: 10px;
-            width: 50%;
-            border-radius: 12px;
-            border:none;
-            font-family: Raleway;
-            font-weight: 600;
-        }
-        .nwtorn:hover{
-            background-color: #ca6b22;
-
-        }
-        .ditorn{
-            background-color: #FF8225;
-            color: #fff;
-            transition: .3s;
-            padding: 12px 16px;
-            margin-top: 10px;
-            width: 50%;
-            border-radius: 12px;
-            border:none;
-            font-family: Raleway;
-            font-weight: 600;
-        }
-        .ditorn:hover{
-            background-color: #ca6b22;
-
-        }
-        .btn{
-            background-color: #FF8225;
-            color: #fff;
-            transition: .3s;
-            padding: 12px 16px;
-            margin-top: 10px;
-            width: 50%;
-            border-radius: 12px;
-            border:none;
-            font-family: Raleway;
-            font-weight: 600;
-        }
-        .btn:hover{
-            background-color: #ca6b22;
-
         }
 
 /*##### main perfil  #####*/
@@ -497,8 +403,81 @@ h2{
         margin-bottom: 20px;
         color: white;
     }
-
-
+/*##### main series  #####*/
+#fondo-series{
+    height: 450px;
+    padding: 60px 0px;
+    background-image: url(../imgs/fondoseries3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px -550px;
+}
+        #fondo-series section{
+        width: 1000px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 16px;
+        display: flex;
+        justify-content: space-evenly;
+        }
+        #fondo-series article{
+            width: 200px;
+            height: 150px;
+            background-color: #F4F4F4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+        }
+        #fondo-series section img{
+            width: 72px;
+            height: 72px;
+            border: 2px solid #000000;
+            border-radius: 36px;
+            margin-top: 20px;
+        }
+        #fondo-series article:hover{
+            transition: .5s;
+            background-color: #B43F3F;
+            color: white;
+            border-radius: 16px;
+            border: 1px solid  #8c3232;
+        }
+        #fondo-series section img:hover{
+            background-color: white;
+            margin: 10px;
+        }
+        #navseries{
+            width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        #navseries a{
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 8px 2px 8px 2px;
+            background-color:#173B45;
+            color: white;
+            border-radius: 8px 8px 0 0;
+            transition: .3s;
+            font-family: Raleway;
+            font-weight: 300;
+            font-size: 12px;
+        }
+        #navseries a:hover{
+            background-color: #ca6b22;
+        }
+        #practicaAlumnos, #torneoAlumnos{
+            width: 1000px;
+            margin: auto;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: #fff;
+        }
 /*##### main contacto  #####*/
 #fondo-contacto{
 
