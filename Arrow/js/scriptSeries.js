@@ -23,6 +23,7 @@ let torneoAlumno = document.querySelector('#torneoAlumno');
 let btnAlumno = document.querySelector('#btnAlumno');
 let practicaAlumnos = document.querySelector('#practicaAlumnos');
 const torneoAlumnos = document.querySelector('#torneoAlumnos');
+let fiscalizar = document.querySelector('#fiscalizar');
 
 function seteo(){
     practicasection.style.display = 'flex';
@@ -31,6 +32,7 @@ function seteo(){
     torneoAlumno.style.display = 'flex';
     practicaAlumnos.style.display = 'none';
     torneoAlumnos.style.display = 'none';
+    fiscalizar.style.display = 'none';
 
 }
 seteo();
@@ -51,6 +53,10 @@ alumnosection.addEventListener('click', function(event) {
     event.preventDefault();
     seccion('cursa');
 });
+btnFiscal.addEventListener('click', function(event) {
+    event.preventDefault();
+    seccion('fiscalizando');
+});
 
 function seccion(arco){
     practicasection.style.display = 'none';
@@ -59,6 +65,7 @@ function seccion(arco){
     torneoAlumno.style.display = 'none';
     practicaAlumnos.style.display = 'none';
     torneoAlumnos.style.display = 'none';
+    fiscalizar.style.display = 'none';
 
 
     switch(arco){
@@ -70,6 +77,7 @@ function seccion(arco){
             torneoAlumno.style.display = 'none';
             practicaAlumnos.style.display = 'flex';
             torneoAlumnos.style.display = 'none';
+            fiscalizar.style.display = 'none';
 
             break;
         case 'cursando':
@@ -80,6 +88,7 @@ function seccion(arco){
             torneoAlumno.style.display = 'none';
             practicaAlumnos.style.display = 'none';
             torneoAlumnos.style.display = 'flex';
+            fiscalizar.style.display = 'flex';
 
             break;
             default:
