@@ -313,6 +313,13 @@ function manejarEstado(accion) {
             });
 
             nuevoTorneo.querySelector('.newtorneo').addEventListener('click', function() {
+                localStorage.setItem('torneo',JSON.stringify(
+                    {
+                        title:titulo,
+                        date:fecha,
+                        mode:modalidad
+                    }
+                ));
                 let contenedorPublicados = document.querySelector('#torneospublicados');
                 let botonEditar = nuevoTorneo.querySelector('.editorn');
                 let botonPublicar = nuevoTorneo.querySelector('.newtorneo');
@@ -331,6 +338,7 @@ function manejarEstado(accion) {
             });
 
             document.querySelector('#torneoscreados').appendChild(nuevoTorneo);
+            
             alert('Datos guardados');
             formtorneo.reset();
             iniciar();
