@@ -24,7 +24,7 @@ let formtorneo = document.querySelector('#formtorneo');
 let torneoscreados = document.querySelector('#torneoscreados');
 let fiscalizandoCompa = document.querySelector('#fiscalizandoCompa');
 let agregando = document.querySelector('#agregando');
-let guardaArquero = document.querySelector('#guardaArquero');
+let resultadoArquero = document.querySelector('#resultadoArquero');
 let fiscal = document.querySelector('#fiscal');
 let btnfiscal = document.querySelector('#btnfiscal');
 let fiscalsesection = document.querySelector('#fiscalsesection');
@@ -112,26 +112,26 @@ agregando.addEventListener('click', function(event) {
     for (let i = 1; i <= 3; i++) {
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = `Flecha ${anotaciones.children.length + i}:`; 
+        input.placeholder = `Flecha ${anotando.children.length + i}:`; 
         input.className = 'flechas'; 
         newRow.appendChild(input); 
     }
 
     anotando.appendChild(newRow);
 });
-guardaArquero.addEventListener('click', function(event) {
+resultadoArquero.addEventListener('click', function(event) {
     event.preventDefault();
 
     let sum = 0;
-    const inputs = anotaciones.querySelectorAll('input.flechas');
+    const inputs = anotando.querySelectorAll('input.flechas');
     inputs.forEach(input => {
         const value = parseFloat(input.value);
         if (!isNaN(value)) {
             sum += value;
         }
     });
-    suma.textContent = `${sum}`;
-    suma.style.display='flex';
+    sumatoria.textContent = `${sum}`;
+    sumatoria.style.display='flex';
 });
 
 function creation (options){
