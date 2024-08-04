@@ -1,24 +1,4 @@
 //section series
-// window.addEventListener('load', function() {
-//     const torneoAlumnos = document.getElementById('torneoAlumnos');
-//     const torneo = JSON.parse(localStorage.getItem('torneo'));
-
-//     if (torneo) {
-//         const div = document.createElement('div');
-//         div.className = 'torneo';
-//         div.innerHTML = `
-//             <h3>${torneo.title}</h3>
-//             <p>${torneo.date}</p>
-//             <p>${torneo.mode}</p>
-//         `;
-        
-//         div.addEventListener('click', function() {
-//             mostrarFormulario();
-//         });
-
-//         torneoAlumnos.appendChild(div);
-//     }
-// });
 
 let practicasection = document.querySelector('#practicasection');
 let alumnosection = document.querySelector('#alumnosection');
