@@ -42,6 +42,7 @@ function iniciar(){
     usuariostorneo.style.display= 'none';
     torneoscreados.style.display= 'none';
     torneospublicados.style.display= 'none';
+
 }
 
 iniciar();
@@ -343,6 +344,8 @@ function manejarEstado(accion) {
             formtorneo.reset();
             iniciar();
             break;
+            default:
+                break;
     }
 }
 
