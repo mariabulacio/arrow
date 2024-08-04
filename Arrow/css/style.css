@@ -278,7 +278,7 @@ h2{
         #formtorneo select:focus {
             border-color: #FF8225; 
         }
-        #torneoscreados, #torneospublicados{
+        #torneoscreados, #torneospublicados, #infoTorneo{
             width: 1000px;
             margin: auto;
             border-radius: 16px;
@@ -299,6 +299,35 @@ h2{
         }
         .newtorneo:hover, .editorn:hover, .nwtorn:hover, .ditorn:hover, .btncupo:hover, .btn:hover{
             background-color: #ca6b22;
+        }
+
+        .resultado{
+            margin-top: 20px;
+            min-width: 250px;
+            max-width: 30%;
+            background-color: #F4F4F4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+            border-radius: 16px;
+            border: 1px solid #e8e8e8;
+            text-align: center;
+            padding: 15px;
+        }
+        .resultado:hover{
+            transition: .5s;
+            background-color: #B43F3F;
+            color: white;
+            border-radius: 16px;
+            border: 1px solid  #8c3232;
+        }
+        .resultado h4{
+            margin: 10px;
+            font-family: Raleway;
+            font-weight: 600;
+            font-size: 16px;
         }
 
 /*##### main perfil  #####*/
