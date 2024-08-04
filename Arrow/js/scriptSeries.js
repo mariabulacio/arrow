@@ -31,10 +31,11 @@ let formpropio = document.querySelector('.formpropio');
 let guardandoArquero = document.querySelector('#guardandoArquero');
 let agrega = document.querySelector('#agrega');
 let anotaciones = document.querySelector('#anotaciones');
-let sumatoria = document.querySelector('#sumatoria');
+let suma = document.querySelector('#suma');
 let estadisticas = document.querySelector('#estadisticas');
 let resultadoserie = document.querySelector('#resultadoserie');
 let mood = document.querySelector('#mood');
+let general = document.querySelector('#general');
 
 
 agrega.addEventListener('click', function(event) {
@@ -65,10 +66,10 @@ resultadoserie.addEventListener('click', function(event) {
             sum += value;
         }
     });
-    sumatoria.textContent = `${sum}`;
-    sumatoria.style.display='flex';
+    suma.textContent = `${sum}`;
+    suma.style.display='flex';
 });
-guardandoArquero.addEventListener('click', function(event) {
+guardaArquero.addEventListener('click', function(event) {
     event.preventDefault();
     const nombreseries = nombreserie.value.trim();
     if (nombreseries === '') {
@@ -89,11 +90,13 @@ guardandoArquero.addEventListener('click', function(event) {
     flechasInfo = flechasInfo.slice(0, -2);
 
     const modo = mood.value;
+    const fecha= fechaserie.value;
     const nuevoDiv = document.createElement('div');
     nuevoDiv.className = 'estadistica-item';
 
     nuevoDiv.innerHTML = `
         <h3>${nombreseries}</h3>
+        <h3>${fecha}</h3>
         <h4>Modo: ${modo}</h4>
         <p>${flechasInfo}</p>
         <h4>Sumatoria: ${sum}</h4>
@@ -121,6 +124,7 @@ function seteo(){
     practicaAlumnos.style.display = 'none';
     formpropio.style.display = 'none';
     estadisticas.style.display = 'none';
+    general.style.display = 'flex';
 }
 seteo();
 
@@ -150,6 +154,7 @@ function seccion(arco){
     practicaAlumnos.style.display = 'none';
     formpropio.style.display = 'none';
     estadisticas.style.display = 'none';
+    general.style.display = 'flex';
 
 
     switch(arco){
@@ -162,6 +167,7 @@ function seccion(arco){
             practicaAlumnos.style.display = 'flex';
             formpropio.style.display = 'flex';
             estadisticas.style.display = 'none';
+            general.style.display = 'none';
             break;
         case 'cursando':
         case 'cursa':
@@ -172,6 +178,7 @@ function seccion(arco){
             practicaAlumnos.style.display = 'none';
             formpropio.style.display = 'none';
             estadisticas.style.display = 'flex';
+            general.style.display = 'none';
             break;
             default:
                 break;
