@@ -30,6 +30,7 @@
             <a href="#" id="crearsection">Crear</a>
             <a href="#" id="editarsection">Editar</a>
             <a href="#" id="anotarsesection">Anotarse</a>
+            <a href="#" id="fiscalsesection">Fiscalizar</a>
             <a href="#" id="resultadossection">Resultados</a>
         </nav>
         <section>
@@ -69,6 +70,33 @@
                     <button id="nuevotorneo">Crear</button>
                 </form>
             </div>
+            <div id="fiscalizandoCompa">
+                <form action="" class="formpropio">
+                    <div class="top-rpw">
+                        <input type="text" placeholder="Arquero:" class="flechas">
+                        <select id="mood">
+                            <option value="" disabled selected>Modalidad:</option>
+                            <option value="12m Raso 60cm">12m Raso 60cm</option>
+                            <option value="12m Raso 40cm">12m Raso 40cm</option>
+                            <option value="18m Raso 40cm">18m Raso 40cm</option>
+                            <option value="18m Libre 40cm">18m Libre 40cm</option>
+                        </select>
+                    </div>
+                    <div id="anotando">
+                        <div id="registro">
+                            <input type="text" placeholder="Flecha 1:" class="flechas">
+                            <input type="text" placeholder="Flecha 2:" class="flechas">
+                            <input type="text" placeholder="Flecha 3:"class="flechas">
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <button id="agregando">Agregar</button>
+                        <button id="guardaArquero">Guardar</button>
+                        <button id="enviaArquero">Enviar</button>
+                    </div>
+                    <div id="suma"></div>
+                </form>
+            </div>
             <article id="editar">
                     <a href="" id="btnEditar">
                         <img src="/imgs/editar.png" alt="">
@@ -80,6 +108,12 @@
                         <img src="/imgs/anotarse2.jpg" alt="">
                     </a>
                     <h3>Anotarse</h3> 
+            </article>
+            <article id="fiscal">
+                    <a href="#" id="btnfiscal">
+                        <img src="/imgs/anotarse2.jpg" alt="">
+                    </a>
+                    <h3>Fiscalizar</h3> 
             </article>
             <article id="resultados">
                     <a href="#" id="btnResultados">
