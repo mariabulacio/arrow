@@ -25,7 +25,7 @@
             <a href="#" id="practicasection">Práctica</a>
             <a href="#" id="alumnosection">Historial</a>
         </nav>
-        <section>
+        <section id="general">
             <article id="practica">
                     <a href="#" id="btnPractica">
                         <img src="/imgs/crear.png" alt="">
@@ -41,8 +41,9 @@
         </section>
         <div id="practicaAlumnos">
             <form action="" class="formpropio">
-                <div class="top-rpw">
+                <div class="top-row">
                     <input type="text" placeholder="Nombre de Serie" id="nombreserie">
+                    <input type="date" placeholder="Fecha:" id="fechaserie">
                     <select id="mood">
                         <option value="" disabled selected>Modalidad:</option>
                         <option value="12m Raso 60cm">12m Raso 60cm</option>
@@ -61,9 +62,9 @@
                 <div class="botones">
                     <button id="agrega">Agregar</button>
                     <button id="resultadoserie">Resultado</button>
-                    <button id="guardandoArquero">Guardar</button>
+                    <button id="guardaArquero">Guardar</button>
                 </div>
-                <div id="sumatoria"></div>
+                <div id="suma"></div>
             </form>
         </div>
         <div id="estadisticas"></div>
