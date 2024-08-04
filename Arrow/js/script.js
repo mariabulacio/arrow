@@ -28,6 +28,7 @@ let resultadoArquero = document.querySelector('#resultadoArquero');
 let fiscal = document.querySelector('#fiscal');
 let btnfiscal = document.querySelector('#btnfiscal');
 let fiscalsesection = document.querySelector('#fiscalsesection');
+let resultadosTorneo = document.querySelector('#resultadosTorneo');
 let currentTorneo = null;
 
 
@@ -50,6 +51,7 @@ function iniciar(){
     fiscal.style.display= 'flex';
     fiscalizandoCompa.style.display= 'none';
     fiscalsesection.style.display= 'flex';
+    resultadosTorneo.style.display= 'none';
 }
 
 iniciar();
@@ -152,6 +154,7 @@ function creation (options){
     fiscal.style.display= 'flex';
     fiscalizandoCompa.style.display= 'none';
     fiscalsesection.style.display= 'flex';
+    resultadosTorneo.style.display= 'none';
 
     switch (options){
         case 'crear':
@@ -173,6 +176,7 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';
+            resultadosTorneo.style.display= 'none';
             Array.from(formtorneo.querySelectorAll('input')).forEach(input => {
                 input.disabled = false;
             });
@@ -197,6 +201,7 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';
+            resultadosTorneo.style.display= 'resultadosTorneo';
             break;
 
         case 'anotarse':
@@ -217,6 +222,7 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';
+            resultadosTorneo.style.display= 'resultadosTorneo';
             break;
         case 'fiscalizar':
         case 'fiscalizando':
@@ -236,6 +242,7 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'flex';
             fiscalsesection.style.display= 'flex';
+            resultadosTorneo.style.display= 'none';
             break;
 
         case 'resultados':
@@ -255,6 +262,7 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex'; 
+            resultadosTorneo.style.display= 'flex'; 
             break;
 
         case 'modalidaduno':
@@ -274,6 +282,7 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';   
+            resultadosTorneo.style.display= 'none';   
             break;
         
         default:
