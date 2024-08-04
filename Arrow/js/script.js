@@ -2,7 +2,6 @@
 let crear = document.querySelector('#crear');
 let editar = document.querySelector('#editar');
 let anotarse = document.querySelector('#anotarse');
-let resultados = document.querySelector('#resultados');
 let torneo1 = document.querySelector('#torneo1');
 let torneo2 = document.querySelector('#torneo2');
 let navtorneos = document.querySelector('#navtorneos');
@@ -29,6 +28,8 @@ let fiscal = document.querySelector('#fiscal');
 let btnfiscal = document.querySelector('#btnfiscal');
 let fiscalsesection = document.querySelector('#fiscalsesection');
 let resultadosTorneo = document.querySelector('#resultadosTorneo');
+let resultados = document.querySelector('#resultados');
+let infoTorneo = document.querySelector('#infoTorneo');
 let currentTorneo = null;
 
 
@@ -39,7 +40,6 @@ function iniciar(){
     crear.style.display = 'flex';
     editar.style.display = 'flex';
     anotarse.style.display = 'flex';
-    resultados.style.display = 'flex';
     navtorneos.style.display = 'flex';
     crearSection.style.display = 'flex';
     editarSection.style.display = 'flex';
@@ -52,6 +52,8 @@ function iniciar(){
     fiscalizandoCompa.style.display= 'none';
     fiscalsesection.style.display= 'flex';
     resultadosTorneo.style.display= 'none';
+    resultados.style.display= 'flex';
+    infoTorneo.style.display= 'none';
 }
 
 iniciar();
@@ -142,7 +144,6 @@ function creation (options){
     crear.style.display = 'none';
     editar.style.display = 'none';
     anotarse.style.display = 'none';
-    resultados.style.display = 'none';
     navtorneos.style.display = 'none';
     crearSection.style.display = 'none';
     editarSection.style.display = 'none';
@@ -155,6 +156,8 @@ function creation (options){
     fiscalizandoCompa.style.display= 'none';
     fiscalsesection.style.display= 'flex';
     resultadosTorneo.style.display= 'none';
+    resultados.style.display= 'flex';
+    infoTorneo.style.display= 'none';
 
     switch (options){
         case 'crear':
@@ -164,7 +167,6 @@ function creation (options){
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
-            resultados.style.display = 'none';
             navtorneos.style.display = 'flex';
             crearSection.style.display = 'flex';
             editarSection.style.display = 'flex';
@@ -177,6 +179,8 @@ function creation (options){
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';
             resultadosTorneo.style.display= 'none';
+            resultados.style.display= 'none';
+            infoTorneo.style.display= 'none';
             Array.from(formtorneo.querySelectorAll('input')).forEach(input => {
                 input.disabled = false;
             });
@@ -189,7 +193,6 @@ function creation (options){
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
-            resultados.style.display = 'none';
             navtorneos.style.display = 'flex';
             crearSection.style.display = 'flex';
             editarSection.style.display = 'flex';
@@ -201,7 +204,9 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';
-            resultadosTorneo.style.display= 'resultadosTorneo';
+            resultadosTorneo.style.display= 'none';
+            resultados.style.display= 'none';
+            infoTorneo.style.display= 'none';
             break;
 
         case 'anotarse':
@@ -211,7 +216,6 @@ function creation (options){
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
-            resultados.style.display = 'none';
             navtorneos.style.display = 'flex';
             crearSection.style.display = 'flex';
             editarSection.style.display = 'flex';
@@ -222,7 +226,9 @@ function creation (options){
             fiscal.style.display= 'none';
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';
-            resultadosTorneo.style.display= 'resultadosTorneo';
+            resultadosTorneo.style.display= 'none';
+            resultados.style.display= 'none';
+            infoTorneo.style.display= 'none';
             break;
         case 'fiscalizar':
         case 'fiscalizando':
@@ -231,7 +237,6 @@ function creation (options){
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
-            resultados.style.display = 'none';
             navtorneos.style.display = 'flex';
             crearSection.style.display = 'flex';
             editarSection.style.display = 'flex';
@@ -243,6 +248,8 @@ function creation (options){
             fiscalizandoCompa.style.display= 'flex';
             fiscalsesection.style.display= 'flex';
             resultadosTorneo.style.display= 'none';
+            resultados.style.display= 'none';
+            infoTorneo.style.display= 'none';
             break;
 
         case 'resultados':
@@ -252,7 +259,6 @@ function creation (options){
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
-            resultados.style.display = 'none';
             navtorneos.style.display = 'flex';
             crearSection.style.display = 'flex';
             editarSection.style.display = 'flex';
@@ -263,6 +269,7 @@ function creation (options){
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex'; 
             resultadosTorneo.style.display= 'flex'; 
+            resultados.style.display= 'none'; 
             break;
 
         case 'modalidaduno':
@@ -272,7 +279,6 @@ function creation (options){
             crear.style.display = 'none';
             editar.style.display = 'none';
             anotarse.style.display = 'none';
-            resultados.style.display = 'none';
             navtorneos.style.display = 'flex';
             crearSection.style.display = 'flex';
             editarSection.style.display = 'flex';
@@ -283,6 +289,8 @@ function creation (options){
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';   
             resultadosTorneo.style.display= 'none';   
+            resultados.style.display= 'none';   
+            infoTorneo.style.display= 'none';   
             break;
         
         default:
@@ -302,6 +310,9 @@ let cupo = document.createElement('button');
 cupo.type = 'submit';
 cupo.textContent = 'Inscribirse';
 cupo.className = 'btncupo';
+let enviaArquero = document.querySelector('#enviaArquero');
+
+let puntajes=[];
 
 function manejarEstado(accion) {
     switch (accion) {
@@ -366,6 +377,14 @@ function manejarEstado(accion) {
 
                 nuevoTorn.appendChild(nuevoCupo);
 
+                let copiaTorn = nuevoTorn.cloneNode(true);
+                let botonCupoEnCopia = copiaTorn.querySelector('.btncupo');
+                if (botonCupoEnCopia) {
+                    botonCupoEnCopia.remove();
+                }
+
+                resultadosTorneo.appendChild(copiaTorn);
+
                 document.querySelector('#torneoscreados').removeChild(nuevoTorn);
                 contenedorPublicados.appendChild(nuevoTorn);
             });
@@ -394,6 +413,9 @@ function manejarEstado(accion) {
                 <button class="editorn">Editar</button>
                 <button class="newtorneo">Publicar</button>
             `;
+            nuevoTorneo.addEventListener('click', function() {
+                infoTorneo.style.display = 'flex';
+            });
 
             nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
                 divEditando = nuevoTorneo;
@@ -424,6 +446,13 @@ function manejarEstado(accion) {
                 nuevoCupo.className = 'btncupo';
 
                 nuevoTorneo.appendChild(nuevoCupo);
+                let copiaTorneo = nuevoTorneo.cloneNode(true);
+                let botonCupoEnCopia = copiaTorneo.querySelector('.btncupo');
+                if (botonCupoEnCopia) {
+                    botonCupoEnCopia.remove();
+                }
+
+                resultadosTorneo.appendChild(copiaTorneo);
 
                 document.querySelector('#torneoscreados').removeChild(nuevoTorneo);
                 contenedorPublicados.appendChild(nuevoTorneo);
@@ -450,4 +479,35 @@ nuevotorneo.addEventListener('click', function(event) {
     event.preventDefault();
     manejarEstado('nuevotorneo');
 });
+
+enviaArquero.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    const inputs = fiscalizandoCompa.querySelectorAll('input');
+    let totalPuntaje = 0;
+    
+    inputs.forEach(input => {
+        const value = parseFloat(input.value);
+        if (!isNaN(value)) {
+            totalPuntaje += value;
+        }
+    });
+    let nombreArquero= document.querySelector('#nombreArquero').value;
+    puntajes.push({
+        nombre: nombreArquero,
+        puntaje: totalPuntaje
+    });
+    puntajes.sort((a, b) => b.puntaje - a.puntaje);
+    infoTorneo.innerHTML = '<h3>Resultados del Torneo:</h3>';
+
+
+    puntajes.forEach((usuario, index) => {
+        const resultDiv = document.createElement('div');
+        resultDiv.className = 'resultado';
+        resultDiv.innerHTML = `<p>Posición ${index + 1}: ${usuario.nombre} - Puntaje: ${usuario.puntaje}</p>`;
+        infoTorneo.appendChild(resultDiv);
+    });
+
+    infoTorneo.style.display = 'flex';
+    });
 
