@@ -119,7 +119,9 @@ h2{
     }
 /*##### main torneos  #####*/
 #fondo-torneos{
-    height: 450px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
     padding: 60px 0px;
     background-image: url(../imgs/fondo\ torneos.jpg);
     background-size: cover;
@@ -302,7 +304,9 @@ h2{
 /*##### main perfil  #####*/
 
 #fondo-profile{
-
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
     padding: 60px 0px;
     background-image: url(../imgs/fondoperfil.jpg);
     background-size: cover;
@@ -406,7 +410,7 @@ h2{
     }
 /*##### main series  #####*/
 #fondo-series{
-    min-height: 450px;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
     padding: 60px 0px;
@@ -472,38 +476,9 @@ h2{
         #navseries a:hover{
             background-color: #ca6b22;
         }
-        #torneoAlumnos,#fiscalizandoCompa,#fiscalPropio{
-            width: 1000px;
-            margin: auto;
-            border-radius: 16px;
-            display: flex;
-            justify-content: space-evenly;
-        }
-        #fiscalizar{
-            width: 200px;
-            height: 250px;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-family: Raleway;
-            color: #000000;
-            background-color: #fff;
-            line-height: 1.6;
-            border-radius: 16px;
-            border: 1px solid #e8e8e8;
-        }
-        #fiscalizar:hover{
-            transition: .5s;
-            background-color: #B43F3F;
-            color: white;
-            border-radius: 16px;
-            border: 1px solid  #8c3232;
-            cursor: pointer;
-        }
+
         /*##### sección practica alumnos  #####*/
-        #practicaAlumnos{
+        #practicaAlumnos, #fiscalizandoCompa{
             width: 1000px;
             margin: auto;
             display: flex;
@@ -518,8 +493,8 @@ h2{
         }
         .top-row {
             display: flex;
-            justify-content: space-between;
-            width: 100%;
+            justify-content: center;
+            width: 1000px;
             margin-bottom: 16px;
         }
     
@@ -554,8 +529,8 @@ h2{
             height: 40px;
             padding: 12px 16px;
         }
-        #nombreserie {
-            min-width: 120px;
+        #nombreserie, #fechaserie,#nombreArquero {
+            width: 30%;
             border: 1px solid #e8e8e8;
             background-color: #F4F4F4;
             margin-bottom: 16px; 
@@ -565,9 +540,10 @@ h2{
             border-radius: 12px;
             height: 40px;
             padding: 12px 16px;
+            margin-right: 10px;
         }
         .formpropio select {
-            width: 40%;
+            width: 30%;
             border-radius: 12px;
             border: 1px solid #e8e8e8;
             background-color: #F4F4F4;
@@ -584,7 +560,7 @@ h2{
         .formpropio select:focus {
             border-color: #FF8225; 
         }
-        #anotaciones {
+        #anotaciones, #anotando {
             display: flex;
             flex-wrap: wrap;
             gap: 10px; 
@@ -592,7 +568,7 @@ h2{
             margin-bottom: 16px;
             justify-content: center;
         }
-        #ingreso {
+        #ingreso, #registro {
             display: flex;
             flex-direction: column;
             gap: 10px; 
@@ -600,13 +576,7 @@ h2{
             margin-bottom: 16px;
             justify-content: center;
         }
-        .botones {
-            display: flex;
-            gap: 10px; 
-            width: 100%;
-            justify-content: center;
-        }
-        #sumatoria{
+        #sumatoria, #suma{
             width: 80px;
             height: 80px;
             color: white;
@@ -622,16 +592,26 @@ h2{
             border-radius: 16px;
             margin-top: 30px;
         }
+        .botones {
+            display: flex;
+            gap: 10px; 
+            width: 100%;
+            justify-content: center;
+        }
+
         /*##### sección estadisticas  #####*/
         #estadisticas{
             width: 1000px;
             margin: auto;
             display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
             justify-content: space-evenly;
         }
         .estadistica-item{
-            width: 250px;
-            min-height: 150px;
+            margin-top: 20px;
+            min-width: 250px;
+            max-width: 30%;
             background-color: #F4F4F4;
             display: flex;
             flex-direction: column;
@@ -657,42 +637,6 @@ h2{
             font-size: 16px;
         }
 
-        /*##### sección fiscal  #####*/
-        #anotando {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px; 
-            width: 1000px;
-            margin-bottom: 16px;
-            justify-content: center;
-        }
-        #registro {
-            display: flex;
-            flex-direction: column;
-            gap: 10px; 
-            width: 200px;
-            margin-bottom: 16px;
-            justify-content: center;
-        }
-        #suma{
-            width: 80px;
-            height: 80px;
-            color: white;
-            background-color: #173B45;
-            font-family: Raleway;
-            font-weight: 600;
-            font-size: 20px;
-            padding: 10px;
-            display: none;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            border-radius: 16px;
-            margin-top: 30px;
-        }
-
-        
-    
 /*##### main contacto  #####*/
 #fondo-contacto{
 
