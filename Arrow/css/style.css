@@ -600,7 +600,7 @@ h2{
         }
 
         /*##### sección estadisticas  #####*/
-        #estadisticas{
+        #estadisticas, #resultadosTorneo{
             width: 1000px;
             margin: auto;
             display: flex;
