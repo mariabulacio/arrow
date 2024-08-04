@@ -25,7 +25,7 @@
             <a href="#" id="practicasection">Práctica</a>
             <a href="#" id="alumnosection">Torneo</a>
         </nav>
-        <section>
+        <section id="general">
             <article id="practica">
                     <a href="#" id="btnPractica">
                         <img src="/imgs/crear.png" alt="">
@@ -38,7 +38,6 @@
                 </a>
                 <h3>Torneo</h3> 
             </article>
-            <div id="practicaAlumnos"></div>
             <div id="torneoAlumnos">
                 <div id="fiscalizar">
                     <a href="#" id="btnFiscal">
@@ -47,7 +46,73 @@
                     <h3>Fiscal</h3> 
                 </div>
             </div>
+            <div id="fiscalizandoCompa">
+                <form action="" class="formpropio">
+                    <div class="top-rpw">
+                        <input type="text" placeholder="Arquero:" class="flechas">
+                        <select id="mood">
+                            <option value="" disabled selected>Modalidad:</option>
+                            <option value="12m Raso 60cm">12m Raso 60cm</option>
+                            <option value="12m Raso 40cm">12m Raso 40cm</option>
+                            <option value="18m Raso 40cm">18m Raso 40cm</option>
+                            <option value="18m Libre 40cm">18m Libre 40cm</option>
+                        </select>
+                    </div>
+                    <div id="anotando">
+                        <div id="registro">
+                            <input type="text" placeholder="Flecha 1:" class="flechas">
+                            <input type="text" placeholder="Flecha 2:" class="flechas">
+                            <input type="text" placeholder="Flecha 3:"class="flechas">
+                        </div>
+                    </div>
+                    <div class="botones">
+                        <button id="agrega">Agregar</button>
+                        <button id="guardandoArquero">Guardar</button>
+                        <button id="enviaArquero">Enviar</button>
+                    </div>
+                    <div id="suma"></div>
+                </form>
+            </div>
+            <div id="fiscalPropio">
+                <form action="" id="fiscalPropioTorneo">
+                    <input type="text" placeholder="Arquero:" id="nombreArquero">
+                    <select id="mood">
+                        <option value="" disabled selected>Modalidad:</option>
+                        <option value="12m Raso 60cm">12m Raso 60cm</option>
+                        <option value="12m Raso 40cm">12m Raso 40cm</option>
+                        <option value="18m Raso 40cm">18m Raso 40cm</option>
+                        <option value="18m Libre 40cm">18m Libre 40cm</option>
+                    </select>
+                    <button id="guardadoArquero">Guardar</button>
+                </form>
+            </div>
         </section>
+        <div id="practicaAlumnos">
+            <form action="" class="formpropio">
+                <div class="top-rpw">
+                    <input type="text" placeholder="N° Serie" class="flechas">
+                    <select id="mood">
+                        <option value="" disabled selected>Modalidad:</option>
+                        <option value="12m Raso 60cm">12m Raso 60cm</option>
+                        <option value="12m Raso 40cm">12m Raso 40cm</option>
+                        <option value="18m Raso 40cm">18m Raso 40cm</option>
+                        <option value="18m Libre 40cm">18m Libre 40cm</option>
+                    </select>
+                </div>
+                <div id="anotaciones">
+                    <div id="ingreso">
+                        <input type="text" placeholder="Flecha 1:" class="flechas">
+                        <input type="text" placeholder="Flecha 2:" class="flechas">
+                        <input type="text" placeholder="Flecha 3:"class="flechas">
+                    </div>
+                </div>
+                <div class="botones">
+                    <button id="agrega">Agregar</button>
+                    <button id="guardandoArquero">Guardar</button>
+                </div>
+                <div id="sumatoria"></div>
+            </form>
+        </div>
     </main>
         <footer>
             <div id="contenido-footer">
