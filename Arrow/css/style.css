@@ -163,6 +163,7 @@ h2{
             background-color: white;
             margin: 10px;
         }
+
         #navtorneos{
             width: 1000px;
             margin: auto;
@@ -405,7 +406,8 @@ h2{
     }
 /*##### main series  #####*/
 #fondo-series{
-    height: 450px;
+    display: flex;
+    flex-direction: column;
     padding: 60px 0px;
     background-image: url(../imgs/fondoseries3.jpg);
     background-size: cover;
@@ -470,7 +472,7 @@ h2{
         #navseries a:hover{
             background-color: #ca6b22;
         }
-        #practicaAlumnos, #torneoAlumnos{
+        #torneoAlumnos,#fiscalizandoCompa,#fiscalPropio{
             width: 1000px;
             margin: auto;
             border-radius: 16px;
@@ -500,12 +502,149 @@ h2{
             border: 1px solid  #8c3232;
             cursor: pointer;
         }
-        .fiscalizar h3{
+        /*##### sección practica alumnos  #####*/
+        #practicaAlumnos{
+            width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+        }
+        .formpropio{
+            width:550px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    
+        .formpropio button
+        {
+            width: 30%;
+            border-radius: 12px;
+            border:none;
+            padding: 16px;
+            font-family: Raleway;
+            font-weight: 600;
+            box-sizing: border-box;
+            background-color: #FF8225;
+            color: #fff;
+            transition: .3s;
+            padding: 12px 16px;
+            box-sizing: border-box;
+        }
+    
+        .formpropio button:hover{
+            background-color: #ca6b22;
+        }
+        .flechas {
+            min-width: 120px;
+            border: 1px solid #e8e8e8;
+            background-color: #F4F4F4;
+            margin-bottom: 16px; 
+            font-family: Raleway;
+            font-weight: 600;
+            color: #707070;
+            border-radius: 12px;
+            height: 40px;
+            padding: 12px 16px;
+        }
+        .formpropio select {
+            width: 40%;
+            border-radius: 12px;
+            border: 1px solid #e8e8e8;
+            background-color: #F4F4F4;
+            padding: 16px;
+            font-family: Raleway;
+            font-weight: 600;
+            color: #707070;
+            margin-bottom: 16px;
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            appearance: none; 
+        }
+        
+        .formpropio select:focus {
+            border-color: #FF8225; 
+        }
+        #anotaciones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; 
+            width: 1000px;
+            margin-bottom: 16px;
+            justify-content: center;
+        }
+        #ingreso {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+            width: 200px;
+            margin-bottom: 16px;
+            justify-content: center;
+        }
+        .botones {
+            display: flex;
+            gap: 10px; 
+            width: 100%;
+            justify-content: center;
+        }
+        #sumatoria{
+            width: 80px;
+            height: 80px;
+            color: white;
+            background-color: #173B45;
+            font-family: Raleway;
+            font-weight: 600;
+            font-size: 20px;
             padding: 10px;
+            display: none;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            margin-top: 30px;
         }
-        .fiscalizar p{
-            margin-bottom: 5px;
+        /*##### sección fiscal  #####*/
+        #anotando {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; 
+            width: 1000px;
+            margin-bottom: 16px;
+            justify-content: center;
         }
+        #registro {
+            display: flex;
+            flex-direction: column;
+            gap: 10px; 
+            width: 200px;
+            margin-bottom: 16px;
+            justify-content: center;
+        }
+        #suma{
+            width: 80px;
+            height: 80px;
+            color: white;
+            background-color: #173B45;
+            font-family: Raleway;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 10px;
+            display: none;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            margin-top: 30px;
+        }
+
+        
+    
 /*##### main contacto  #####*/
 #fondo-contacto{
 
