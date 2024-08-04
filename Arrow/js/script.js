@@ -22,7 +22,12 @@ let nuevotorneo = document.querySelector('#nuevotorneo')
 let modo = document.querySelector('#modo');
 let formtorneo = document.querySelector('#formtorneo');
 let torneoscreados = document.querySelector('#torneoscreados');
-let torneospublicados = document.querySelector('#torneospublicados');
+let fiscalizandoCompa = document.querySelector('#fiscalizandoCompa');
+let agregando = document.querySelector('#agregando');
+let guardaArquero = document.querySelector('#guardaArquero');
+let fiscal = document.querySelector('#fiscal');
+let btnfiscal = document.querySelector('#btnfiscal');
+let fiscalsesection = document.querySelector('#fiscalsesection');
 let currentTorneo = null;
 
 
@@ -42,11 +47,21 @@ function iniciar(){
     usuariostorneo.style.display= 'none';
     torneoscreados.style.display= 'none';
     torneospublicados.style.display= 'none';
-
+    fiscal.style.display= 'flex';
+    fiscalizandoCompa.style.display= 'none';
+    fiscalsesection.style.display= 'flex';
 }
 
 iniciar();
 
+btnfiscal.addEventListener('click', function(event) {
+    event.preventDefault();
+    creation('fiscalizar');
+});
+fiscalsesection.addEventListener('click', function(event) {
+    event.preventDefault();
+    creation('fiscalizando');
+});
 btnCrear.addEventListener('click', function(event) {
     event.preventDefault();
     creation('crear');
@@ -87,7 +102,37 @@ torneo2.addEventListener('click', function(event) {
     event.preventDefault();
     creation('modalidadDos');
 });
+agregando.addEventListener('click', function(event) {
+    event.preventDefault(); 
 
+    const newRow = document.createElement('div');
+    newRow.style.display = 'flex';
+    newRow.style.flexDirection = 'column';
+    newRow.style.gap = '10px'; 
+    for (let i = 1; i <= 3; i++) {
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = `Flecha ${anotaciones.children.length + i}:`; 
+        input.className = 'flechas'; 
+        newRow.appendChild(input); 
+    }
+
+    anotando.appendChild(newRow);
+});
+guardaArquero.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    let sum = 0;
+    const inputs = anotaciones.querySelectorAll('input.flechas');
+    inputs.forEach(input => {
+        const value = parseFloat(input.value);
+        if (!isNaN(value)) {
+            sum += value;
+        }
+    });
+    suma.textContent = `${sum}`;
+    suma.style.display='flex';
+});
 
 function creation (options){
     torneo1.style.display = 'none';
@@ -104,6 +149,9 @@ function creation (options){
     usuariostorneo.style.display= 'none';
     torneoscreados.style.display= 'none';
     torneospublicados.style.display= 'none';
+    fiscal.style.display= 'flex';
+    fiscalizandoCompa.style.display= 'none';
+    fiscalsesection.style.display= 'flex';
 
     switch (options){
         case 'crear':
@@ -122,6 +170,9 @@ function creation (options){
             torneoscreados.style.display= 'none';
             torneospublicados.style.display= 'none';
             usuariostorneo.style.display= 'none'; 
+            fiscal.style.display= 'none';
+            fiscalizandoCompa.style.display= 'none';
+            fiscalsesection.style.display= 'flex';
             Array.from(formtorneo.querySelectorAll('input')).forEach(input => {
                 input.disabled = false;
             });
@@ -143,6 +194,9 @@ function creation (options){
             usuariostorneo.style.display= 'none';
             torneoscreados.style.display= 'flex';
             torneospublicados.style.display= 'none';
+            fiscal.style.display= 'none';
+            fiscalizandoCompa.style.display= 'none';
+            fiscalsesection.style.display= 'flex';
             break;
 
         case 'anotarse':
@@ -160,6 +214,28 @@ function creation (options){
             resultadosSection.style.display = 'flex';
             usuariostorneo.style.display= 'none'; 
             torneospublicados.style.display= 'flex'; 
+            fiscal.style.display= 'none';
+            fiscalizandoCompa.style.display= 'none';
+            fiscalsesection.style.display= 'flex';
+            break;
+        case 'fiscalizar':
+        case 'fiscalizando':
+            torneo1.style.display = 'none';
+            torneo2.style.display = 'none';
+            crear.style.display = 'none';
+            editar.style.display = 'none';
+            anotarse.style.display = 'none';
+            resultados.style.display = 'none';
+            navtorneos.style.display = 'flex';
+            crearSection.style.display = 'flex';
+            editarSection.style.display = 'flex';
+            anotarseSection.style.display = 'flex';
+            resultadosSection.style.display = 'flex';
+            usuariostorneo.style.display= 'none'; 
+            torneospublicados.style.display= 'none'; 
+            fiscal.style.display= 'none';
+            fiscalizandoCompa.style.display= 'flex';
+            fiscalsesection.style.display= 'flex';
             break;
 
         case 'resultados':
@@ -175,7 +251,10 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            usuariostorneo.style.display= 'none';  
+            usuariostorneo.style.display= 'none'; 
+            fiscal.style.display= 'none';
+            fiscalizandoCompa.style.display= 'none';
+            fiscalsesection.style.display= 'flex'; 
             break;
 
         case 'modalidaduno':
@@ -191,7 +270,10 @@ function creation (options){
             editarSection.style.display = 'flex';
             anotarseSection.style.display = 'flex';
             resultadosSection.style.display = 'flex';
-            usuariostorneo.style.display= 'flex';    
+            usuariostorneo.style.display= 'flex'; 
+            fiscal.style.display= 'none';
+            fiscalizandoCompa.style.display= 'none';
+            fiscalsesection.style.display= 'flex';   
             break;
         
         default:
