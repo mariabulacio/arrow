@@ -29,7 +29,7 @@ let btnfiscal = document.querySelector('#btnfiscal');
 let fiscalsesection = document.querySelector('#fiscalsesection');
 let resultadosTorneo = document.querySelector('#resultadosTorneo');
 let resultados = document.querySelector('#resultados');
-let infoTorneo = document.querySelector('#infoTorneo');
+let ultimoIndice = 3;
 let currentTorneo = null;
 
 
@@ -53,7 +53,6 @@ function iniciar(){
     fiscalsesection.style.display= 'flex';
     resultadosTorneo.style.display= 'none';
     resultados.style.display= 'flex';
-    infoTorneo.style.display= 'none';
 }
 
 iniciar();
@@ -116,9 +115,10 @@ agregando.addEventListener('click', function(event) {
     for (let i = 1; i <= 3; i++) {
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = `Flecha ${anotando.children.length + i}:`; 
+        input.placeholder = `Flecha ${ultimoIndice+1}:`; 
         input.className = 'flechas'; 
-        newRow.appendChild(input); 
+        newRow.appendChild(input);
+        ultimoIndice++; 
     }
 
     anotando.appendChild(newRow);
@@ -157,7 +157,6 @@ function creation (options){
     fiscalsesection.style.display= 'flex';
     resultadosTorneo.style.display= 'none';
     resultados.style.display= 'flex';
-    infoTorneo.style.display= 'none';
 
     switch (options){
         case 'crear':
@@ -180,7 +179,6 @@ function creation (options){
             fiscalsesection.style.display= 'flex';
             resultadosTorneo.style.display= 'none';
             resultados.style.display= 'none';
-            infoTorneo.style.display= 'none';
             Array.from(formtorneo.querySelectorAll('input')).forEach(input => {
                 input.disabled = false;
             });
@@ -206,7 +204,6 @@ function creation (options){
             fiscalsesection.style.display= 'flex';
             resultadosTorneo.style.display= 'none';
             resultados.style.display= 'none';
-            infoTorneo.style.display= 'none';
             break;
 
         case 'anotarse':
@@ -228,7 +225,6 @@ function creation (options){
             fiscalsesection.style.display= 'flex';
             resultadosTorneo.style.display= 'none';
             resultados.style.display= 'none';
-            infoTorneo.style.display= 'none';
             break;
         case 'fiscalizar':
         case 'fiscalizando':
@@ -249,7 +245,6 @@ function creation (options){
             fiscalsesection.style.display= 'flex';
             resultadosTorneo.style.display= 'none';
             resultados.style.display= 'none';
-            infoTorneo.style.display= 'none';
             break;
 
         case 'resultados':
@@ -289,8 +284,7 @@ function creation (options){
             fiscalizandoCompa.style.display= 'none';
             fiscalsesection.style.display= 'flex';   
             resultadosTorneo.style.display= 'none';   
-            resultados.style.display= 'none';   
-            infoTorneo.style.display= 'none';   
+            resultados.style.display= 'none';    
             break;
         
         default:
@@ -312,7 +306,7 @@ cupo.textContent = 'Inscribirse';
 cupo.className = 'btncupo';
 let enviaArquero = document.querySelector('#enviaArquero');
 
-let puntajes=[];
+let torneoData = {}; 
 
 function manejarEstado(accion) {
     switch (accion) {
@@ -336,7 +330,7 @@ function manejarEstado(accion) {
                     botonCupo.remove();
                 }
 
-                divEditando.style.display = 'block';
+                divEditando.style.display = 'flex';
                 divEditando = null;
                 formtorneo.reset();
                 usuariostorneo.style.display = 'none';
@@ -413,9 +407,6 @@ function manejarEstado(accion) {
                 <button class="editorn">Editar</button>
                 <button class="newtorneo">Publicar</button>
             `;
-            nuevoTorneo.addEventListener('click', function() {
-                infoTorneo.style.display = 'flex';
-            });
 
             nuevoTorneo.querySelector('.editorn').addEventListener('click', function() {
                 divEditando = nuevoTorneo;
@@ -482,6 +473,7 @@ nuevotorneo.addEventListener('click', function(event) {
 
 enviaArquero.addEventListener('click', function(event) {
     event.preventDefault();
+    let torneoValue = "12mraso40m";
 
     const inputs = fiscalizandoCompa.querySelectorAll('input');
     let totalPuntaje = 0;
@@ -492,22 +484,15 @@ enviaArquero.addEventListener('click', function(event) {
             totalPuntaje += value;
         }
     });
-    let nombreArquero= document.querySelector('#nombreArquero').value;
-    puntajes.push({
-        nombre: nombreArquero,
-        puntaje: totalPuntaje
-    });
-    puntajes.sort((a, b) => b.puntaje - a.puntaje);
-    infoTorneo.innerHTML = '<h3>Resultados del Torneo:</h3>';
 
+    let nombreArquero = document.querySelector('#nombreArquero').value;
+    guardarPuntajeEnTorneo(torneoValue, nombreArquero, totalPuntaje);
+    mostrarResultados(torneoValue);
+});
 
-    puntajes.forEach((usuario, index) => {
-        const resultDiv = document.createElement('div');
-        resultDiv.className = 'resultado';
-        resultDiv.innerHTML = `<p>Posición ${index + 1}: ${usuario.nombre} - Puntaje: ${usuario.puntaje}</p>`;
-        infoTorneo.appendChild(resultDiv);
-    });
-
-    infoTorneo.style.display = 'flex';
-    });
-
+function guardarPuntajeEnTorneo(value, nombre, puntaje) {
+    if (!torneoData[value]) {
+        torneoData[value] = [];
+    }
+    torneoData[value].push({ nombre, puntaje });
+}
