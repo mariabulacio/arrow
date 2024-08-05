@@ -57,7 +57,8 @@ h2{
     }
 /*##### main login  #####*/
 #login{
-
+    min-height: 420px;
+    display: flex;
     padding: 60px 0px;
     background-image: url(../imgs/fonfo-main1.jpg);
     background-repeat: no-repeat;
@@ -241,7 +242,6 @@ h2{
             font-family: Raleway;
             color: #000000;
             background-color: #fff;
-            line-height: 1.6;
             border-radius: 16px;
             border: 1px solid #e8e8e8;
         }
@@ -355,6 +355,8 @@ h2{
     #formulario-perfil{
         width:550px;
         margin-right:70px;
+        flex-direction: column;
+        align-items: center;
     }
 
     #formulario-perfil h2{
@@ -373,6 +375,9 @@ h2{
         font-weight: 600;
         color: #707070;
         margin-right: 12px;
+        border: 1px solid #e8e8e8;
+        background-color: #F4F4F4;
+        margin-bottom: 16px;
     }
     #formulario-perfil button{
         width: 30%;
@@ -388,13 +393,6 @@ h2{
         padding: 12px 16px;
         text-align: center;
         margin-right: 12px;
-    }
-
-    #formulario-perfil input
-    {
-        border: 1px solid #e8e8e8;
-        background-color: #F4F4F4;
-        margin-bottom: 16px;
     }
 
     #formulario-perfil button:hover{
@@ -668,7 +666,8 @@ h2{
 
 /*##### main contacto  #####*/
 #fondo-contacto{
-
+    min-height: 420px;
+    display: flex;
     padding: 60px 0px;
     background-image: url(../imgs/fondo\ contacto2.jpg);
     background-size: cover;
