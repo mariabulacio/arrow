@@ -17,6 +17,7 @@ let resultadoserie = document.querySelector('#resultadoserie');
 let mood = document.querySelector('#mood');
 let general = document.querySelector('#general');
 
+let ultimoIndice = 3;
 
 agrega.addEventListener('click', function(event) {
     event.preventDefault(); 
@@ -28,9 +29,10 @@ agrega.addEventListener('click', function(event) {
     for (let i = 1; i <= 3; i++) {
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = `Flecha ${anotaciones.children.length + i}:`; 
+        input.placeholder = `Flecha ${ultimoIndice+1}:`; 
         input.className = 'flechas'; 
-        newRow.appendChild(input); 
+        newRow.appendChild(input);
+        ultimoIndice++; 
     }
 
     anotaciones.appendChild(newRow);
