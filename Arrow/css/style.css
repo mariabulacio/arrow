@@ -124,7 +124,7 @@ h2{
 /*##### main torneos  #####*/
 #fondo-torneos{
     flex: 1; 
-    min-height: 100vh; 
+    min-height: 70vh; 
     display: flex;
     flex-direction: column;
     padding: 60px 0px;
@@ -133,6 +133,7 @@ h2{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    justify-content: center;
 }
         #fondo-torneos section{
         /* width: 80%;
@@ -140,6 +141,7 @@ h2{
         /* padding: 50px; */
         border-radius: 16px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-evenly;
         }
         #fondo-torneos article{
@@ -174,7 +176,6 @@ h2{
 
         #navtorneos{
             width: 100%;
-            margin: 30px;
             display: flex;
             justify-content: center;
         }
@@ -469,7 +470,7 @@ h2{
 /*##### main series  #####*/
 #fondo-series{
     flex: 1; 
-    min-height: 100vh; 
+    min-height: 70vh; 
     display: flex;
     flex-direction: column;
     padding: 60px 0px;
@@ -478,16 +479,20 @@ h2{
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    justify-content: center;
+    
 }
         #fondo-series section{
         /* width: 1000px;
         margin: auto; */
         border-radius: 16px;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-evenly;
         }
         #fondo-series article{
-            width: 200px;
+            flex: 1 1 200px; 
+            max-width: 200px;
             height: 150px;
             background-color: #F4F4F4;
             display: flex;
@@ -517,7 +522,6 @@ h2{
         }
         #navseries{
             width: 100%;
-            margin: 30px;
             display: flex;
             justify-content: center;
         }
