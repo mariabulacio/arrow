@@ -55,15 +55,18 @@ h2{
         transition: .3s;
         border-radius: 40px;
     }
+
 /*##### main login  #####*/
 #login{
-    min-height: 420px;
+    flex: 1; 
+    min-height: 100vh; 
     display: flex;
     padding: 60px 0px;
     background-image: url(../imgs/fonfo-main1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0px -50px;
+    background-position: center;
+    background-attachment: fixed;
     
 }
     #login section{
@@ -120,19 +123,21 @@ h2{
     }
 /*##### main torneos  #####*/
 #fondo-torneos{
-    min-height: 420px;
+    flex: 1; 
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     padding: 60px 0px;
     background-image: url(../imgs/fondo\ torneos.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0px -100px;
+    background-position: center;
+    background-attachment: fixed;
 }
         #fondo-torneos section{
-        width: 1000px;
-        margin: auto;
-        padding: 30px;
+        /* width: 80%;
+        margin: auto; */
+        /* padding: 50px; */
         border-radius: 16px;
         display: flex;
         justify-content: space-evenly;
@@ -168,8 +173,8 @@ h2{
         }
 
         #navtorneos{
-            width: 1000px;
-            margin: auto;
+            width: 100%;
+            margin: 30px;
             display: flex;
             justify-content: center;
         }
@@ -191,7 +196,7 @@ h2{
         #usuariostorneo{
             display: flex;
             justify-content: center;
-            width:1000px;
+            width:100%;
             margin:auto;
         }
         #usuariostorneo form{
@@ -278,9 +283,8 @@ h2{
         #formtorneo select:focus {
             border-color: #FF8225; 
         }
-        #torneoscreados, #torneospublicados, #infoTorneo{
-            width: 1000px;
-            margin: auto;
+        #torneoscreados, #torneospublicados{
+            width: 100%;
             border-radius: 16px;
             display: flex;
             justify-content: space-evenly;
@@ -333,15 +337,18 @@ h2{
 /*##### main perfil  #####*/
 
 #fondo-profile{
-    min-height: 420px;
+    flex: 1; 
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     padding: 60px 0px;
     background-image: url(../imgs/fondoperfil.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0px -200px;
+    background-position: center;
+    background-attachment: fixed;
 }
+
     #fondo-profile section{
         background-color:#173B45;
         width: 700px;
@@ -380,7 +387,7 @@ h2{
         margin-bottom: 10px;
     }
     #datosPersonales{
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         color: white;
     }
     #formperfil{
@@ -461,18 +468,20 @@ h2{
 
 /*##### main series  #####*/
 #fondo-series{
-    min-height: 420px;
+    flex: 1; 
+    min-height: 100vh; 
     display: flex;
     flex-direction: column;
     padding: 60px 0px;
     background-image: url(../imgs/fondoseries3.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0px -550px;
+    background-position: center;
+    background-attachment: fixed;
 }
         #fondo-series section{
-        width: 1000px;
-        margin: auto;
+        /* width: 1000px;
+        margin: auto; */
         border-radius: 16px;
         display: flex;
         justify-content: space-evenly;
@@ -507,8 +516,8 @@ h2{
             margin: 10px;
         }
         #navseries{
-            width: 1000px;
-            margin: auto;
+            width: 100%;
+            margin: 30px;
             display: flex;
             justify-content: center;
         }
@@ -530,7 +539,7 @@ h2{
 
         /*##### sección practica alumnos  #####*/
         #practicaAlumnos, #fiscalizandoCompa{
-            width: 1000px;
+            width: 100%;
             margin: auto;
             display: flex;
             justify-content: center;
@@ -652,8 +661,7 @@ h2{
 
         /*##### sección estadisticas  #####*/
         #estadisticas, #resultadosTorneo{
-            width: 1000px;
-            margin: auto;
+            width: 100%;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
@@ -690,14 +698,17 @@ h2{
 
 /*##### main contacto  #####*/
 #fondo-contacto{
-    min-height: 420px;
+    flex: 1; 
+    min-height: 100vh; 
     display: flex;
     padding: 60px 0px;
     background-image: url(../imgs/fondo\ contacto2.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0px -300px;
+    background-position: center;
+    background-attachment: fixed;
 }
+
     #fondo-contacto section{
         background-color: #fff;
         width: 1000px;
@@ -789,6 +800,7 @@ footer {
     margin: auto;
     display: flex;
     align-items: center;
+    
 }
     #contenido-footer p{
         color: #fff;
@@ -810,3 +822,5 @@ footer {
         background-color: #FF8225;
         transition: .3s;
     }
+
+
